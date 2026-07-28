@@ -1,0 +1,23 @@
+# RSNA Pneumonia Detection Challenge — configuración de referencia
+manifest: data/manifest_rsna.csv
+out_dir: runs/rsna_densenet121
+
+seed: 42
+arch: densenet121        # o cualquier backbone de timm: efficientnet_b0, convnext_tiny...
+pretrained: true
+dropout: 0.2
+freeze_backbone: false
+
+img_size: 224
+batch_size: 32
+num_workers: 2
+use_clahe: false
+
+epochs: 12
+lr: 1.0e-4
+weight_decay: 1.0e-4
+early_stopping_patience: 4
+
+# Desbalance: pos_weight en la loss. Alternativa: balance_train (sampler ponderado).
+use_pos_weight: true
+balance_train: false

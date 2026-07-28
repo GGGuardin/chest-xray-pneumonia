@@ -1,0 +1,33 @@
+# Datos: NUNCA subir imágenes médicas al repositorio
+data/raw/
+data/interim/
+data/*.csv
+!data/README.md
+
+# Artefactos de entrenamiento
+runs/
+reports/
+.smoke/
+*.pth
+*.pt
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Credenciales
+kaggle.json
+.env

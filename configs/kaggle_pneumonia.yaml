@@ -1,0 +1,25 @@
+# "Chest X-Ray Images (Pneumonia)" (Kermany et al. / Paul Mooney)
+# Dataset pequeño (~5.8k imágenes, pediátrico, un solo hospital de Guangzhou):
+# sirve para validar el flujo, pero generaliza mal. Úsalo como dataset externo
+# frente a un modelo entrenado en RSNA para medir la caída de AUROC.
+manifest: data/manifest_kaggle.csv
+out_dir: runs/kaggle_densenet121
+
+seed: 42
+arch: densenet121
+pretrained: true
+dropout: 0.2
+freeze_backbone: false
+
+img_size: 224
+batch_size: 32
+num_workers: 2
+use_clahe: false
+
+epochs: 10
+lr: 1.0e-4
+weight_decay: 1.0e-4
+early_stopping_patience: 3
+
+use_pos_weight: true
+balance_train: false
