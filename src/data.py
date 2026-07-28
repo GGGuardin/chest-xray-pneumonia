@@ -120,6 +120,79 @@ def build_manifest_kaggle_pneumonia(root: str | Path) -> pd.DataFrame:
     return _finalize_manifest(df)
 
 
+def build_manifest_nih(
+    root: str | Path,
+    target: str = "Pneumonia",
+    frontal_only: bool = False,
+) -> pd.DataFrame:
+    """NIH ChestX-ray14 (nih-chest-xrays/data en Kaggle).
+
+    112.120 imágenes de 30.805 pacientes, con 3-4 radiografías por paciente de
+    media: aquí el split por paciente no es un detalle formal, es la diferencia
+    entre medir generalización y medir memorización.
+
+    Estructura esperada (se localiza por búsqueda, tolera variantes):
+        root/Data_Entry_2017.csv
+        root/images_001/images/*.png ... root/images_012/images/*.png
+
+    `target` es la etiqueta positiva: cualquiera de las 14 patologías
+    ("Pneumonia", "Effusion", "Cardiomegaly"...) o "any" para
+    "cualquier hallazgo frente a No Finding".
+
+    Aviso sobre las etiquetas: se extrajeron de informes por NLP. El NIH declara
+    >90% de exactitud, pero la cifra está disputada (Oakden-Rayner 2020), con
+    estimaciones de más del 10% de etiquetas incorrectas. Trátalas como ruidosas.
+    """
+    root = Path(root)
+    csvs = list(root.rglob("Data_Entry_2017*.csv"))
+    if not csvs:
+        raise FileNotFoundError(f"No encuentro Data_Entry_2017.csv bajo {root}")
+    meta = pd.read_csv(csvs[0])
+
+    log.info("Indexando imágenes PNG bajo %s ...", root)
+    rutas = {p.name: str(p) for p in root.rglob("*.png")}
+    log.info("%d imágenes localizadas, %d filas en el CSV", len(rutas), len(meta))
+
+    meta = meta[meta["Image Index"].isin(rutas)].copy()
+    if meta.empty:
+        raise FileNotFoundError("Ninguna fila del CSV casa con las imágenes encontradas.")
+
+    etiquetas = meta["Finding Labels"].fillna("")
+    if target.lower() == "any":
+        label = (etiquetas != "No Finding").astype(int)
+    else:
+        disponibles = sorted({e for fila in etiquetas for e in fila.split("|")})
+        if target not in disponibles:
+            raise ValueError(f"Etiqueta '{target}' no existe. Disponibles: {disponibles}")
+        # Multi-etiqueta: una imagen puede tener varias patologías a la vez
+        label = etiquetas.str.split("|").map(lambda ls: int(target in ls))
+
+    if frontal_only and "View Position" in meta.columns:
+        antes = len(meta)
+        mantener = meta["View Position"].isin(["PA", "AP"])
+        meta, label = meta[mantener], label[mantener]
+        log.info("Filtradas a proyecciones frontales: %d -> %d", antes, len(meta))
+
+    edad = pd.to_numeric(meta.get("Patient Age"), errors="coerce")
+    # El CSV contiene edades imposibles (>100, hasta 414) por errores de origen
+    edad = edad.where((edad > 0) & (edad <= 100))
+
+    df = pd.DataFrame(
+        {
+            "image_path": meta["Image Index"].map(rutas).values,
+            "patient_id": meta["Patient ID"].astype(str).values,
+            "label": label.values,
+            "source": "nih_chestxray14",
+            "view": meta.get("View Position", pd.Series("UNKNOWN", index=meta.index)).values,
+            "sex": meta.get("Patient Gender", pd.Series("UNKNOWN", index=meta.index)).values,
+            "age": edad.values,
+        }
+    )
+    log.info("NIH/%s: %d imágenes, %d pacientes, %.2f%% positivos",
+             target, len(df), df["patient_id"].nunique(), 100 * df["label"].mean())
+    return _finalize_manifest(df)
+
+
 def build_manifest_folder(root: str | Path) -> pd.DataFrame:
     """Fallback genérico: root/<CLASE>/*.png con CLASE en {NORMAL, PNEUMONIA}."""
     root = Path(root)
@@ -148,6 +221,7 @@ def build_manifest_folder(root: str | Path) -> pd.DataFrame:
 
 MANIFEST_BUILDERS: dict[str, Callable[..., pd.DataFrame]] = {
     "rsna": build_manifest_rsna,
+    "nih": build_manifest_nih,
     "kaggle_pneumonia": build_manifest_kaggle_pneumonia,
     "folder": build_manifest_folder,
 }

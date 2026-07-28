@@ -1,4 +1,4 @@
-# Datos: NUNCA subir imágenes médicas al repositorio
+﻿# Datos: NUNCA subir imÃ¡genes mÃ©dicas al repositorio
 data/raw/
 data/interim/
 data/*.csv
@@ -7,7 +7,7 @@ data/*.csv
 # Artefactos de entrenamiento
 runs/
 reports/
-.smoke/
+.smoke*/
 *.pth
 *.pt
 *.ckpt

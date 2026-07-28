@@ -1,15 +1,18 @@
 {
-  "id": "guillermoguardin/rsna-pneumonia-densenet121",
-  "title": "RSNA pneumonia densenet121",
-  "code_file": "kaggle_rsna.ipynb",
+  "id": "guillermoguardin/nih-cxr14-densenet121",
+  "title": "nih cxr14 densenet121",
+  "code_file": "kaggle_nih.ipynb",
   "language": "python",
   "kernel_type": "notebook",
   "is_private": true,
   "enable_gpu": true,
   "enable_tpu": false,
   "enable_internet": true,
-  "dataset_sources": ["paultimothymooney/chest-xray-pneumonia"],
-  "competition_sources": ["rsna-pneumonia-detection-challenge"],
+  "dataset_sources": [
+    "nih-chest-xrays/data",
+    "paultimothymooney/chest-xray-pneumonia"
+  ],
+  "competition_sources": [],
   "kernel_sources": [],
   "model_sources": []
 }

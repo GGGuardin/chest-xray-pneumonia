@@ -1,0 +1,31 @@
+# NIH ChestX-ray14 — configuración de referencia
+#
+# 112.120 imágenes de 30.805 pacientes (3-4 radiografías por paciente): el split
+# por paciente es aquí una necesidad real, no un formalismo.
+#
+# Referencia de rendimiento: CheXNet (Rajpurkar et al. 2017) reporta AUROC 0,768
+# para Pneumonia en este dataset. NO esperes 0,85: la etiqueta procede de NLP
+# sobre informes, es ruidosa, y la prevalencia es ~1,3%. Superar 0,75 con un
+# split por paciente limpio es un buen resultado honesto.
+manifest: data/manifest_nih.csv
+out_dir: runs/nih_densenet121
+
+seed: 42
+arch: densenet121
+pretrained: true
+dropout: 0.2
+freeze_backbone: false
+
+img_size: 224
+batch_size: 64
+num_workers: 4
+use_clahe: false
+
+epochs: 6
+lr: 1.0e-4
+weight_decay: 1.0e-4
+early_stopping_patience: 3
+
+# Con ~1,3% de positivos, pos_weight ronda 75: imprescindible.
+use_pos_weight: true
+balance_train: false

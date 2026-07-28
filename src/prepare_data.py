@@ -28,11 +28,25 @@ def main() -> None:
         action="store_true",
         help="Solo RSNA: descarta la clase ambigua 'No Lung Opacity / Not Normal'",
     )
+    ap.add_argument(
+        "--target",
+        default="Pneumonia",
+        help="Solo NIH: etiqueta positiva (Pneumonia, Effusion, Cardiomegaly... o 'any')",
+    )
+    ap.add_argument(
+        "--frontal-only",
+        action="store_true",
+        help="Solo NIH: conserva únicamente proyecciones PA/AP",
+    )
     args = ap.parse_args()
 
     log = setup_logging()
     builder = MANIFEST_BUILDERS[args.dataset]
-    kwargs = {"exclude_not_normal": args.exclude_not_normal} if args.dataset == "rsna" else {}
+    kwargs: dict = {}
+    if args.dataset == "rsna":
+        kwargs = {"exclude_not_normal": args.exclude_not_normal}
+    elif args.dataset == "nih":
+        kwargs = {"target": args.target, "frontal_only": args.frontal_only}
     df = builder(args.root, **kwargs)
     log.info("Manifiesto: %d imágenes, %d pacientes, %.1f%% positivos",
              len(df), df["patient_id"].nunique(), 100 * df["label"].mean())
