@@ -1,6 +1,6 @@
 {
   "id": "guillermoguardin/rsna-pneumonia-densenet121",
-  "title": "RSNA pneumonia DenseNet121 patient-level",
+  "title": "RSNA pneumonia densenet121",
   "code_file": "kaggle_rsna.ipynb",
   "language": "python",
   "kernel_type": "notebook",
