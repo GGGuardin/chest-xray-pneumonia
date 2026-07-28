@@ -109,6 +109,13 @@ def build_manifest_kaggle_pneumonia(root: str | Path) -> pd.DataFrame:
             }
         )
     df = pd.DataFrame(rows)
+    # Algunas copias del dataset (la de Kaggle entre ellas) traen el árbol
+    # duplicado en chest_xray/chest_xray; sin esto, cada imagen contaría dos veces.
+    antes = len(df)
+    df["_stem"] = df["image_path"].map(lambda p: Path(p).name)
+    df = df.drop_duplicates(subset=["label", "_stem"]).drop(columns="_stem")
+    if len(df) < antes:
+        log.info("Eliminados %d duplicados por árbol repetido", antes - len(df))
     log.info("Kaggle pneumonia: %d imágenes, %d pacientes", len(df), df["patient_id"].nunique())
     return _finalize_manifest(df)
 

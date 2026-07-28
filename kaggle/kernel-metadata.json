@@ -1,0 +1,15 @@
+{
+  "id": "guillermoguardin/rsna-pneumonia-densenet121",
+  "title": "RSNA pneumonia DenseNet121 patient-level",
+  "code_file": "kaggle_rsna.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": ["paultimothymooney/chest-xray-pneumonia"],
+  "competition_sources": ["rsna-pneumonia-detection-challenge"],
+  "kernel_sources": [],
+  "model_sources": []
+}
