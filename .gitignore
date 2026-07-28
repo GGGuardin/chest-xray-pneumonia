@@ -1,4 +1,4 @@
-﻿# Datos: NUNCA subir imÃ¡genes mÃ©dicas al repositorio
+# Datos: NUNCA subir imágenes médicas al repositorio
 data/raw/
 data/interim/
 data/*.csv
