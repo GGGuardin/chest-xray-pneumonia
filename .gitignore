@@ -31,3 +31,6 @@ Thumbs.db
 # Credenciales
 kaggle.json
 .env
+
+# Salidas descargadas de Kaggle
+.kaggle_out/
