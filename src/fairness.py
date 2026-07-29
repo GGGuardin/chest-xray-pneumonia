@@ -84,6 +84,17 @@ def main() -> None:
     ap.add_argument("--threshold", type=float, default=None,
                     help="Por defecto usa la columna 'pred' ya umbralizada del CSV")
     ap.add_argument("--min-n", type=int, default=30)
+    ap.add_argument(
+        "--attributes",
+        default="sex,age_group,view",
+        help="Atributos a estratificar, separados por comas. `age_group` se deriva de `age`. "
+             "Para dermatología: fitzpatrick,sex,age_group",
+    )
+    ap.add_argument(
+        "--intersect",
+        default="sex,age_group",
+        help="Par de atributos para el análisis interseccional, o cadena vacía para omitirlo",
+    )
     args = ap.parse_args()
 
     out_dir = Path(args.out_dir)
@@ -98,14 +109,19 @@ def main() -> None:
         threshold = float(pos.min()) if len(pos) else 0.5
     df = add_age_group(df)
 
+    atributos = [a.strip() for a in args.attributes.split(",") if a.strip()]
     tablas = []
-    for attr in ["sex", "age_group", "view"]:
+    for attr in atributos:
         if attr in df.columns and df[attr].astype(str).nunique() > 1:
             t = subgroup_table(df, attr, threshold, args.min_n)
             if not t.empty:
                 tablas.append(t)
-    if {"sex", "age_group"}.issubset(df.columns):
-        t = intersectional_table(df, ["sex", "age_group"], threshold, args.min_n)
+        else:
+            log.info("Atributo '%s' ausente o constante: se omite", attr)
+
+    cruce = [a.strip() for a in args.intersect.split(",") if a.strip()]
+    if len(cruce) >= 2 and set(cruce).issubset(df.columns):
+        t = intersectional_table(df, cruce, threshold, args.min_n)
         if not t.empty:
             tablas.append(t)
 

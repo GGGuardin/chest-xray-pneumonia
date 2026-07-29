@@ -367,7 +367,10 @@ def load_image(path: str | Path) -> np.ndarray:
     else:
         from PIL import Image
 
-        arr = np.array(Image.open(path).convert("L"))
+        # RGB y no escala de grises: en una radiografía los tres canales salen
+        # idénticos, así que el resultado es el mismo de antes; pero en una foto
+        # de piel el color es la señal principal y convertir a gris la destruye.
+        arr = np.array(Image.open(path).convert("RGB"))
 
     if arr.ndim == 2:
         arr = np.stack([arr] * 3, axis=-1)
@@ -388,13 +391,26 @@ IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
 
-def build_transforms(img_size: int = 224, train: bool = False, use_clahe: bool = False):
-    """Augmentation apropiada para tórax.
+def build_transforms(
+    img_size: int = 224,
+    train: bool = False,
+    use_clahe: bool = False,
+    allow_hflip: bool = False,
+):
+    """Augmentation, con la lateralidad como parámetro explícito.
 
-    NUNCA se usa flip horizontal: invertiría la lateralidad anatómica
-    (corazón a la izquierda del paciente) y enseñaría al modelo una anatomía
-    de situs inversus que no existe en la práctica. Tampoco se usan
-    deformaciones agresivas que puedan borrar hallazgos sutiles.
+    En **tórax** el flip horizontal está prohibido y por eso el valor por defecto
+    es `False`: invertiría la lateralidad anatómica (el corazón está a la
+    izquierda del paciente) y enseñaría una anatomía de situs inversus que
+    prácticamente no existe, destruyendo la información en la que se apoyan
+    diagnósticos como la cardiomegalia.
+
+    En **dermatología** la restricción no aplica: un lunar no tiene lateralidad,
+    así que voltear duplica datos gratis. De ahí que sea configurable en lugar de
+    estar cableado — la regla era del dominio, no del código.
+
+    En ambos casos se evitan deformaciones agresivas que puedan borrar hallazgos
+    sutiles (nódulos pequeños, bordes irregulares de una lesión).
     """
     import albumentations as A
     from albumentations.pytorch import ToTensorV2
@@ -407,6 +423,8 @@ def build_transforms(img_size: int = 224, train: bool = False, use_clahe: bool =
     aug = [A.Resize(img_size, img_size)]
     if use_clahe:
         aug.append(A.CLAHE(clip_limit=2.0, tile_grid_size=(8, 8), p=0.3))
+    if allow_hflip:
+        aug.append(A.HorizontalFlip(p=0.5))
     aug += [
         A.Affine(scale=(0.92, 1.08), translate_percent=(-0.05, 0.05), rotate=(-10, 10), p=0.7),
         A.RandomBrightnessContrast(brightness_limit=0.15, contrast_limit=0.15, p=0.5),
@@ -456,6 +474,7 @@ def make_loaders(
     num_workers: int = 2,
     use_clahe: bool = False,
     balance_train: bool = False,
+    allow_hflip: bool = False,
 ):
     """Crea los DataLoaders de train/val/test desde el manifiesto ya splitteado."""
     import torch
@@ -467,7 +486,9 @@ def make_loaders(
         if part.empty:
             continue
         is_train = split == "train"
-        ds = ChestXrayDataset(part, build_transforms(img_size, is_train, use_clahe))
+        ds = ChestXrayDataset(
+            part, build_transforms(img_size, is_train, use_clahe, allow_hflip)
+        )
 
         sampler = None
         if is_train and balance_train:

@@ -108,6 +108,7 @@ def main() -> None:
         num_workers=cfg.get("num_workers", 2),
         use_clahe=cfg.get("use_clahe", False),
         balance_train=cfg.get("balance_train", False),
+        allow_hflip=cfg.get("allow_hflip", False),
     )
     if "val" not in loaders:
         raise ValueError("El manifiesto no tiene split 'val'; ejecuta src.prepare_data primero.")
