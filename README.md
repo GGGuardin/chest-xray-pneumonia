@@ -27,7 +27,7 @@ sesgo por subgrupos.
 | **Umbral fijado en validación** (índice de Youden) | Elegir el umbral mirando el test es una fuga de información sutil pero real. |
 | **Sin flip horizontal** en el *augmentation* | El corazón está a la izquierda del paciente; voltear la imagen crea una anatomía de *situs inversus* (~1:10.000) y destruye la información lateral en la que se apoya, por ejemplo, la cardiomegalia. |
 | **`pos_weight` en la loss** | Compensa el desbalance sin descartar datos. Alternativa disponible: sampler ponderado (`balance_train`). |
-| **Grad-CAM + métrica de energía en bordes** | Un mapa de calor bonito no prueba nada. Se cuantifica qué fracción de la atención cae en el marco exterior: si es alta, hay indicios de *shortcut learning* (marcadores, texto quemado, bordes). |
+| **Grad-CAM + métrica de energía en bordes** | Un mapa de calor bonito no prueba nada. Se cuantifica qué fracción de la atención cae en el marco exterior, **solo sobre las detecciones positivas** y contra el baseline de un mapa uniforme (0,51): en los negativos el mapa es ruido y contamina la media. |
 | **Validación externa obligatoria** | Un modelo entrenado en un hospital cae al evaluarse en otro. Si el AUROC baja más de 0,10, eso es el resultado y hay que analizarlo, no esconderlo. |
 | **Análisis de subgrupos (FNR)** | El infradiagnóstico selectivo en poblaciones desatendidas está documentado; medirlo es parte del trabajo, no un extra. |
 
@@ -161,14 +161,77 @@ sube `app/app.py`, `src/`, `requirements.txt` y `best.pth`, y define
 
 ## Resultados
 
-<!-- Rellenar tras el primer entrenamiento completo -->
+DenseNet-121 entrenada en RSNA (66 min en una T4 de Kaggle), *early stopping* en
+la época 7 conservando la 3. Artefactos completos en [`results/rsna/`](results/rsna).
 
 | Conjunto | n | AUROC (IC95%) | AUPRC | Sens. | Esp. |
 |---|---|---|---|---|---|
-| Test interno (RSNA) | — | — | — | — | — |
-| Externo (Kaggle pneumonia) | — | — | — | — | — |
+| **Test interno** (RSNA, split por paciente) | 3.812 | **0,885** (0,872–0,897) | 0,718 | 0,776 | 0,813 |
+| **Externo — NIH ChestX-ray14** | 112.120 | 0,727 (0,714–0,740) | 0,035 | 0,542 | 0,787 |
+| **Externo — pediátrico (Guangzhou)** | 5.856 | 0,922 (0,914–0,930) | 0,969 | **0,362** | 0,992 |
 
-**Umbral de éxito del proyecto:** AUROC > 0,85 en test con split por paciente.
+**Umbral de éxito del proyecto:** AUROC > 0,85 en test con split por paciente —
+**cumplido**, con el intervalo de confianza entero por encima.
+
+### Los tres hallazgos que importan
+
+**1. La generalización entre hospitales se rompe.** Al evaluar en NIH el AUROC cae
+0,157, muy por encima del umbral de alarma de 0,10 que fija este proyecto. Es el
+efecto que documentaron Zech et al. (2018) reproducido de forma independiente.
+Parte de la caída es desplazamiento de etiqueta —RSNA marca *opacidad pulmonar*
+anotada por radiólogos y NIH marca *neumonía* extraída por NLP—, pero no todo.
+
+**2. Un AUROC alto puede esconder un modelo inservible.** En el conjunto
+pediátrico el AUROC *sube* a 0,922, y sin embargo la sensibilidad al umbral de
+operación es 0,362: **el modelo se pierde el 64% de las neumonías** (2.726 falsos
+negativos). La discriminación transfirió; la calibración no. El AUROC es
+independiente del umbral, la utilidad clínica no lo es. Ninguna métrica sola
+habría revelado esto: hace falta mirar sensibilidad y matriz de confusión junto
+al AUROC.
+
+**3. El sesgo grave no es demográfico, es técnico.**
+
+| Atributo | Brecha de FNR | Peor subgrupo |
+|---|---|---|
+| **Proyección AP/PA** | **0,415** | PA: FNR 0,553 · AP: FNR 0,138 |
+| Edad × sexo | 0,260 | Hombres 60-74 (FNR 0,337) |
+| Edad | 0,253 | 60-74 (FNR 0,333) |
+| Sexo | 0,003 | sin sesgo apreciable |
+
+Por sexo no hay brecha. La enorme es la proyección: en PA (pacientes ambulantes,
+prevalencia 8,9%) el modelo se pierde el 55% de los casos; en AP (portátil,
+pacientes encamados y más graves, prevalencia 38,1%) captura el 86% a costa de un
+39% de falsos positivos. **El modelo usa la geometría de adquisición como
+sustituto de la gravedad del paciente.**
+
+### Grad-CAM: la atención sí cae en el pulmón
+
+| Grupo | n | Energía en bordes |
+|---|---|---|
+| Detecciones positivas (p ≥ umbral) | 4 | **0,237** |
+| Resto de casos | 11 | 0,579 |
+| *Baseline de un mapa uniforme* | — | *0,510* |
+
+En los casos que el modelo da por positivos, la atención se concentra claramente
+en el centro (0,237 frente al 0,510 de un mapa sin estructura), e inspeccionando
+los mapas se ve que ignora electrodos de ECG, cables y marcadores de lateralidad.
+
+Un detalle metodológico que costó descubrir: **promediar todas las imágenes juntas
+da 0,488 y simula un atajo espurio inexistente.** En los negativos bien
+clasificados el Grad-CAM de la clase positiva es todo ceros o ruido difuso —no
+tiene nada que señalar— y su energía en bordes es alta por construcción. La
+pregunta con sentido es *cuando el modelo cree ver algo, ¿dónde mira?*, y por eso
+`explain.py` separa ambos grupos y compara contra el baseline uniforme en vez de
+contra un umbral arbitrario.
+
+### Qué se publica y qué no
+
+`results/` contiene métricas, curvas, matrices de confusión y el análisis de
+subgrupos. **No incluye los mapas Grad-CAM**, porque llevan superpuestas
+radiografías reales de RSNA y las reglas de la competición no permiten
+redistribuir las imágenes. Se pueden ver ejecutando `src/explain.py` con los datos
+descargados, o en el notebook de Kaggle, que es donde su visualización está
+amparada.
 
 ---
 

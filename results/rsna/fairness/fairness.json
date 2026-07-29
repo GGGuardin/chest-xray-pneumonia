@@ -1,0 +1,49 @@
+{
+  "threshold": 0.5832034,
+  "global": {
+    "n": 3812,
+    "prevalencia": 0.22586568730325288,
+    "threshold": 0.5832034,
+    "auroc": 0.8847009872044792,
+    "auprc": 0.7177561089227003,
+    "accuracy": 0.804302203567681,
+    "sensibilidad": 0.775842044134727,
+    "especificidad": 0.8126058963063368,
+    "ppv": 0.5470925470925471,
+    "npv": 0.9255113855654188,
+    "f1": 0.6416906820365033,
+    "fnr": 0.22415795586527298,
+    "fpr": 0.18739410369366316,
+    "brier": 0.14236459985896918,
+    "tp": 668,
+    "fp": 553,
+    "tn": 2398,
+    "fn": 193
+  },
+  "brechas": {
+    "age_group": {
+      "fnr_max": 0.3333,
+      "fnr_min": 0.08,
+      "brecha_fnr": 0.25329999999999997,
+      "peor_subgrupo": "60-74"
+    },
+    "sex": {
+      "fnr_max": 0.2253,
+      "fnr_min": 0.2225,
+      "brecha_fnr": 0.002799999999999997,
+      "peor_subgrupo": "M"
+    },
+    "sex x age_group": {
+      "fnr_max": 0.3368,
+      "fnr_min": 0.0769,
+      "brecha_fnr": 0.2599,
+      "peor_subgrupo": "M | 60-74"
+    },
+    "view": {
+      "fnr_max": 0.5531,
+      "fnr_min": 0.1378,
+      "brecha_fnr": 0.4153,
+      "peor_subgrupo": "PA"
+    }
+  }
+}

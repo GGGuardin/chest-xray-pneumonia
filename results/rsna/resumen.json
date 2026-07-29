@@ -1,0 +1,155 @@
+{
+  "entrenado_en": "rsna",
+  "umbral_proyecto_auroc": 0.85,
+  "test_interno_rsna": {
+    "n": 3812,
+    "prevalencia": 0.22586568730325288,
+    "threshold": 0.5830846428871155,
+    "auroc": 0.8847009872044792,
+    "auprc": 0.7177561089227003,
+    "accuracy": 0.804302203567681,
+    "sensibilidad": 0.775842044134727,
+    "especificidad": 0.8126058963063368,
+    "ppv": 0.5470925470925471,
+    "npv": 0.9255113855654188,
+    "f1": 0.6416906820365033,
+    "fnr": 0.22415795586527298,
+    "fpr": 0.18739410369366316,
+    "brier": 0.14236459991046216,
+    "tp": 668,
+    "fp": 553,
+    "tn": 2398,
+    "fn": 193,
+    "auroc_ci95": [
+      0.8721078158564955,
+      0.89696095502015
+    ],
+    "auprc_ci95": [
+      0.6860689009383213,
+      0.7479560402677043
+    ],
+    "checkpoint": "/kaggle/working/runs/rsna_densenet121/best.pth",
+    "manifest": "/kaggle/working/manifest_rsna.csv",
+    "split": "test"
+  },
+  "externo_nih": {
+    "n": 112120,
+    "prevalencia": 0.012763110952550838,
+    "threshold": 0.5830846428871155,
+    "auroc": 0.7274660807476788,
+    "auprc": 0.0348708226347573,
+    "accuracy": 0.783446307527649,
+    "sensibilidad": 0.5422781271837875,
+    "especificidad": 0.7865641572333294,
+    "ppv": 0.03180197532887996,
+    "npv": 0.9925329746121136,
+    "f1": 0.06008052028491793,
+    "fnr": 0.45772187281621246,
+    "fpr": 0.2134358427666706,
+    "brier": 0.17617704890127142,
+    "tp": 776,
+    "fp": 23625,
+    "tn": 87064,
+    "fn": 655,
+    "auroc_ci95": [
+      0.7136311169699499,
+      0.7401515280998409
+    ],
+    "auprc_ci95": [
+      0.03165731971775964,
+      0.03898317123884604
+    ],
+    "checkpoint": "/kaggle/working/runs/rsna_densenet121/best.pth",
+    "manifest": "/kaggle/working/manifest_nih.csv",
+    "split": "all"
+  },
+  "externo_pediatrico": {
+    "n": 5856,
+    "prevalencia": 0.7296789617486339,
+    "threshold": 0.5830846428871155,
+    "auroc": 0.9224864465782072,
+    "auprc": 0.9690269819340481,
+    "accuracy": 0.5324453551912568,
+    "sensibilidad": 0.362040720805055,
+    "especificidad": 0.9924194567277321,
+    "ppv": 0.9923027581783195,
+    "npv": 0.36560390970444495,
+    "f1": 0.5305212620027435,
+    "fnr": 0.637959279194945,
+    "fpr": 0.00758054327226787,
+    "brier": 0.23738006470954415,
+    "tp": 1547,
+    "fp": 12,
+    "tn": 1571,
+    "fn": 2726,
+    "auroc_ci95": [
+      0.9144592796131422,
+      0.9298807361463871
+    ],
+    "auprc_ci95": [
+      0.9650867259637159,
+      0.9730321327392853
+    ],
+    "checkpoint": "/kaggle/working/runs/rsna_densenet121/best.pth",
+    "manifest": "/kaggle/working/manifest_ped.csv",
+    "split": "all"
+  },
+  "fairness": {
+    "threshold": 0.5832034,
+    "global": {
+      "n": 3812,
+      "prevalencia": 0.22586568730325288,
+      "threshold": 0.5832034,
+      "auroc": 0.8847009872044792,
+      "auprc": 0.7177561089227003,
+      "accuracy": 0.804302203567681,
+      "sensibilidad": 0.775842044134727,
+      "especificidad": 0.8126058963063368,
+      "ppv": 0.5470925470925471,
+      "npv": 0.9255113855654188,
+      "f1": 0.6416906820365033,
+      "fnr": 0.22415795586527298,
+      "fpr": 0.18739410369366316,
+      "brier": 0.14236459985896918,
+      "tp": 668,
+      "fp": 553,
+      "tn": 2398,
+      "fn": 193
+    },
+    "brechas": {
+      "age_group": {
+        "fnr_max": 0.3333,
+        "fnr_min": 0.08,
+        "brecha_fnr": 0.25329999999999997,
+        "peor_subgrupo": "60-74"
+      },
+      "sex": {
+        "fnr_max": 0.2253,
+        "fnr_min": 0.2225,
+        "brecha_fnr": 0.002799999999999997,
+        "peor_subgrupo": "M"
+      },
+      "sex x age_group": {
+        "fnr_max": 0.3368,
+        "fnr_min": 0.0769,
+        "brecha_fnr": 0.2599,
+        "peor_subgrupo": "M | 60-74"
+      },
+      "view": {
+        "fnr_max": 0.5531,
+        "fnr_min": 0.1378,
+        "brecha_fnr": 0.4153,
+        "peor_subgrupo": "PA"
+      }
+    }
+  },
+  "gradcam": {
+    "n_imagenes": 16,
+    "energia_bordes_media": 0.48779552777608237,
+    "energia_bordes_p90": 0.9394834876060486,
+    "marco_evaluado": "15% exterior (~51% del área total)"
+  },
+  "caida_auroc_externo_nih": 0.1572,
+  "caida_auroc_externo_pediatrico": -0.0378,
+  "minutos_totales": 65.9
+}

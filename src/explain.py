@@ -82,12 +82,26 @@ class GradCAM:
         self.close()
 
 
-def border_energy_fraction(cam: np.ndarray, border_frac: float = 0.15) -> float:
+BORDER_FRAC = 0.15
+
+
+def uniform_baseline(border_frac: float = BORDER_FRAC) -> float:
+    """Energía en bordes que produciría un mapa uniforme.
+
+    Es la referencia contra la que hay que comparar: con un marco del 15% por
+    lado, el marco ocupa 1 - 0.7^2 = 51% del área, así que un CAM sin estructura
+    da ~0.51. Por debajo = atención concentrada en el centro (pulmón); por
+    encima = atención en bordes, marcadores o texto quemado.
+    """
+    return float(1.0 - (1.0 - 2.0 * border_frac) ** 2)
+
+
+def border_energy_fraction(cam: np.ndarray, border_frac: float = BORDER_FRAC) -> float:
     """Fracción de la masa del CAM que cae en el marco exterior de la imagen.
 
-    Un pulmón ocupa la zona central: valores altos (> ~0.35 con marco del 15%,
-    que es ~51% del área) apuntan a que el modelo atiende a bordes, marcadores
-    o texto quemado en lugar de a la anatomía.
+    Devuelve NaN si el mapa es todo ceros, cosa que ocurre de forma sistemática
+    en negativos bien clasificados: el Grad-CAM de la clase positiva no tiene
+    nada que señalar y la ReLU lo anula. Compara siempre con `uniform_baseline()`.
     """
     h, w = cam.shape
     bh, bw = max(1, int(h * border_frac)), max(1, int(w * border_frac))
@@ -96,6 +110,49 @@ def border_energy_fraction(cam: np.ndarray, border_frac: float = 0.15) -> float:
     if total <= 0:
         return float("nan")
     return float(1.0 - inner.sum() / total)
+
+
+def resumen_atajos(detalle: list[dict], threshold: float) -> dict:
+    """Agrega la auditoría separando detecciones positivas del resto.
+
+    Promediar todas las imágenes juntas no significa nada: en los casos que el
+    modelo da por negativos el mapa es ruido difuso y su energía en bordes es
+    alta por construcción, lo que contamina la media y simula un atajo espurio
+    donde no lo hay. La pregunta con sentido es: **cuando el modelo cree ver una
+    opacidad, ¿dónde mira?**
+    """
+    base = uniform_baseline()
+    detecciones = [d["border_energy"] for d in detalle
+                   if d.get("prob", 0) >= threshold and not np.isnan(d.get("border_energy", np.nan))]
+    resto = [d["border_energy"] for d in detalle
+             if d.get("prob", 0) < threshold and not np.isnan(d.get("border_energy", np.nan))]
+    todas = [d["border_energy"] for d in detalle if not np.isnan(d.get("border_energy", np.nan))]
+
+    def _media(xs):
+        return float(np.mean(xs)) if xs else float("nan")
+
+    media_det = _media(detecciones)
+    return {
+        "baseline_uniforme": round(base, 4),
+        "umbral_operativo": round(float(threshold), 4),
+        "marco_evaluado": f"{int(BORDER_FRAC * 100)}% exterior (~{base:.0%} del área total)",
+        "detecciones_positivas": {
+            "n": len(detecciones),
+            "energia_bordes_media": round(media_det, 4),
+            "veredicto": (
+                "atención centrada en el pulmón" if media_det < base * 0.75
+                else "difusa" if media_det < base
+                else "ATAJO ESPURIO: atención en bordes"
+            ) if detecciones else "sin detecciones positivas en la muestra",
+        },
+        "resto_de_casos": {
+            "n": len(resto),
+            "energia_bordes_media": round(_media(resto), 4),
+            "nota": "mapa sin señal; energía alta esperada, no indica atajo",
+        },
+        "mapas_nulos": sum(1 for d in detalle if np.isnan(d.get("border_energy", np.nan))),
+        "energia_bordes_media_global": round(_media(todas), 4),
+    }
 
 
 def overlay_cam(image_rgb: np.ndarray, cam: np.ndarray, alpha: float = 0.4) -> np.ndarray:
@@ -192,27 +249,25 @@ def main() -> None:
         fig.savefig(out_dir / f"gradcam_{Path(r['image_path']).stem}.png", dpi=140)
         plt.close(fig)
 
-    borders = [r["border_energy"] for r in results if not np.isnan(r["border_energy"])]
-    resumen = {
-        "n_imagenes": len(results),
-        "energia_bordes_media": float(np.mean(borders)) if borders else float("nan"),
-        "energia_bordes_p90": float(np.percentile(borders, 90)) if borders else float("nan"),
-        "marco_evaluado": "15% exterior (~51% del área total)",
-        "detalle": [
-            {"image_path": r["image_path"], "label": r["label"], "prob": r["prob"],
-             "border_energy": r["border_energy"]}
-            for r in results
-        ],
-    }
+    detalle = [
+        {"image_path": r["image_path"], "label": r["label"], "prob": r["prob"],
+         "border_energy": r["border_energy"]}
+        for r in results
+    ]
+    threshold = float(ckpt.get("threshold", 0.5))
+    resumen = {"n_imagenes": len(results), **resumen_atajos(detalle, threshold), "detalle": detalle}
     save_json(resumen, out_dir / "shortcut_audit.json")
 
+    det = resumen["detecciones_positivas"]
     print(f"\n{len(results)} mapas Grad-CAM guardados en {out_dir}")
-    if borders:
-        media = np.mean(borders)
-        print(f"Energía media del CAM en el marco exterior: {media:.3f}")
-        if media > 0.35:
-            print("AVISO: energía alta en los bordes -> posible shortcut learning. "
-                  "Revisa recortes, marcadores de lateralidad y texto quemado.")
+    print(f"Baseline de un mapa uniforme: {resumen['baseline_uniforme']:.3f}")
+    print(f"Detecciones positivas (n={det['n']}): energía en bordes {det['energia_bordes_media']:.3f}"
+          f"  -> {det['veredicto']}")
+    print(f"Resto de casos (n={resumen['resto_de_casos']['n']}): "
+          f"{resumen['resto_de_casos']['energia_bordes_media']:.3f} "
+          f"(sin señal, no informa sobre atajos)")
+    if resumen["mapas_nulos"]:
+        print(f"{resumen['mapas_nulos']} mapas nulos (negativos con predicción muy baja).")
 
 
 if __name__ == "__main__":
