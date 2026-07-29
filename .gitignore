@@ -34,3 +34,6 @@ kaggle.json
 
 # Salidas descargadas de Kaggle
 .kaggle_out/
+
+# Proyecto Tono: repositorio propio
+tono/
