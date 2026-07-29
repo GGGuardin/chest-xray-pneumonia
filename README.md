@@ -186,35 +186,69 @@ en [`results/`](results).
 El modelo B se queda en 0,720, por debajo de la referencia de CheXNet (0,768)
 para esta misma etiqueta y dataset.
 
-### El resultado más incómodo: entrenar en NIH no aportó nada
+### El resultado más incómodo: entrenar en NIH no aportó ventaja medible
 
-| Evaluado sobre NIH | AUROC (IC95%) |
+Comparación **pareada** sobre las mismas 16.703 imágenes del test retenido de NIH,
+con test de DeLong ([`results/comparativa/`](results/comparativa)):
+
+| Evaluado sobre el test de NIH (n=16.703) | AUROC |
 |---|---|
-| Modelo **B**, entrenado *en* NIH (test propio) | 0,720 (0,688–0,754) |
-| Modelo **A**, entrenado en RSNA, que nunca vio NIH | **0,727** (0,714–0,740) |
+| Modelo **B**, entrenado *en* NIH con 78.000 imágenes | 0,720 |
+| Modelo **A**, entrenado en RSNA, que nunca vio NIH | 0,736 |
+| **Diferencia** | **+0,016** (IC95% −0,012 a +0,043) |
+| **DeLong** | z = 1,11 · **p = 0,27** · no significativa |
 
-Un modelo que **nunca vio una sola imagen de NIH** iguala —o supera ligeramente— a
-uno entrenado con sus 78.000 imágenes de entrenamiento. Los intervalos de
-confianza se solapan casi por completo, así que la lectura prudente es *empate*:
-78.000 imágenes etiquetadas por NLP no aportaron ventaja medible sobre transferir
-desde 18.000 anotadas por radiólogos.
+Un modelo que **nunca vio una sola imagen de NIH** rinde igual que uno entrenado
+con sus 78.000. La diferencia favorece nominalmente al modelo A, pero **no es
+estadísticamente distinguible de cero**: la afirmación defendible es *empate*, no
+*"A gana"*. 78.000 imágenes etiquetadas por NLP no aportaron ventaja medible sobre
+transferir desde 18.000 anotadas por radiólogos.
 
-Y al salir de casa la diferencia deja de ser sutil: sobre el conjunto pediátrico
-el modelo A alcanza **0,922** y el B se queda en **0,524**, indistinguible de
-lanzar una moneda. El modelo A aprendió algo que viaja; el B aprendió algo que
-solo existe dentro de NIH.
+Al salir de ambos dominios, en cambio, la diferencia es aplastante y sí
+significativa:
+
+| Conjunto pediátrico (n=5.856) | AUROC |
+|---|---|
+| Modelo A (RSNA) | 0,922 |
+| Modelo B (NIH) | 0,524 — indistinguible del azar |
+| **Diferencia** | **+0,399** (IC95% 0,384–0,414) · z = 52,4 · **p < 10⁻¹⁵** |
+
+Y no es un artefacto del umbral: fijando ambos modelos a una especificidad común
+del 90%, el A alcanza sensibilidad **0,808** y el B **0,225**.
 
 La explicación más plausible es la calidad de la etiqueta: RSNA marca *opacidad
-pulmonar* delimitada visualmente por radiólogos, NIH marca *neumonía* inferida de
-texto libre por un sistema NLP con una tasa de error estimada por encima del 10%
-y una prevalencia del 1,3%. Es evidencia directa, obtenida aquí, de por qué el
-ruido de etiqueta domina sobre el volumen de datos.
+pulmonar* delimitada visualmente por radiólogos; NIH marca *neumonía* inferida de
+texto libre por un sistema NLP con una tasa de error estimada por encima del 10% y
+una prevalencia del 1,3%. El modelo A aprendió algo que viaja; el B aprendió algo
+que solo existe dentro de NIH.
 
-*Matiz honesto:* las dos filas no se miden sobre exactamente el mismo conjunto
-—el modelo B sobre su test retenido (16.703) y el A sobre NIH completo
-(112.120)—, porque el A nunca vio ninguna de esas imágenes y no necesita
-retención. Ambas evaluaciones son legítimas y de la misma distribución, pero la
-comparación no es un experimento pareado.
+### El fallo del conjunto pediátrico era calibración, no discriminación
+
+AUROC 0,922 con sensibilidad 0,362 parece una contradicción, y tiene una causa
+concreta: el umbral se fijó en una población con **22,6%** de prevalencia y se
+aplicó a otra con **73,0%**. Corrigiendo ese desplazamiento de a priori con la
+fórmula de Elkan —reescalar las odds por el cociente de odds a priori, una línea
+de código y ni un gramo de reentrenamiento:
+
+| Métrica | Sin corregir | Corregido |
+|---|---|---|
+| Sensibilidad | 0,362 | **0,950** |
+| Especificidad | 0,992 | 0,613 |
+| F1 | 0,531 | **0,908** |
+| Brier | 0,237 | **0,113** |
+| ECE | 0,335 | **0,094** |
+| AUROC | 0,922 | 0,922 *(no cambia: la transformación es monótona)* |
+
+El modelo pasa de perderse el 64% de las neumonías a detectar el 95%. **La
+capacidad de discriminación siempre estuvo ahí; lo que estaba roto era la escala
+de probabilidad.** Que el AUROC no se mueva un ápice mientras la sensibilidad casi
+se triplica es la demostración más limpia de por qué una sola métrica no basta.
+
+El matiz que impide vender esto como solución: la corrección **exige conocer la
+prevalencia de destino**, y en la práctica clínica esa cifra rara vez está
+disponible de antemano. Además, ni siquiera en su propio test el modelo está bien
+calibrado (ECE 0,138), efecto esperable del `pos_weight` que infla las
+probabilidades.
 
 ### Los tres hallazgos que importan
 

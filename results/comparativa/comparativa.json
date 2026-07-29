@@ -1,0 +1,107 @@
+{
+  "nih_pareado": {
+    "n": 16703,
+    "prevalencia": 0.0133,
+    "modelo_a_rsna": {
+      "auroc": 0.7357,
+      "auprc": 0.0371
+    },
+    "modelo_b_nih": {
+      "auroc": 0.7202,
+      "auprc": 0.0349
+    },
+    "delong": {
+      "auroc_a": 0.7357,
+      "auroc_b": 0.7202,
+      "diferencia": 0.0155,
+      "error_estandar": 0.014,
+      "ic95_diferencia": [
+        -0.0119,
+        0.0429
+      ],
+      "z": 1.106,
+      "p_valor": 0.269,
+      "n": 16703,
+      "n_positivos": 222,
+      "significativo_005": false
+    },
+    "bootstrap_pareado_auroc": {
+      "metrica": "auroc",
+      "diferencia_media": 0.0148,
+      "ic95": [
+        -0.0138,
+        0.0431
+      ],
+      "cruza_cero": true,
+      "n_remuestreos": 2000
+    }
+  },
+  "pediatrico_pareado": {
+    "n": 5856,
+    "prevalencia": 0.7297,
+    "delong": {
+      "auroc_a": 0.9225,
+      "auroc_b": 0.5236,
+      "diferencia": 0.3989,
+      "error_estandar": 0.0076,
+      "ic95_diferencia": [
+        0.3839,
+        0.4138
+      ],
+      "z": 52.436,
+      "p_valor": 0.0,
+      "n": 5856,
+      "n_positivos": 4273,
+      "significativo_005": true
+    },
+    "bootstrap_pareado_auroc": {
+      "metrica": "auroc",
+      "diferencia_media": 0.3988,
+      "ic95": [
+        0.3844,
+        0.4148
+      ],
+      "cruza_cero": false,
+      "n_remuestreos": 2000
+    }
+  },
+  "calibracion_pediatrico": {
+    "prevalencia_entrenamiento": 0.2259,
+    "prevalencia_destino": 0.7297,
+    "umbral": 0.5831,
+    "sin_corregir": {
+      "auroc": 0.9225,
+      "sensibilidad": 0.362,
+      "especificidad": 0.9924,
+      "f1": 0.5305,
+      "brier": 0.2374,
+      "accuracy": 0.5324
+    },
+    "corregido_por_prevalencia": {
+      "auroc": 0.9225,
+      "sensibilidad": 0.9497,
+      "especificidad": 0.6134,
+      "f1": 0.9075,
+      "brier": 0.1134,
+      "accuracy": 0.8588
+    },
+    "ece_sin_corregir": 0.3348,
+    "ece_corregido": 0.0943,
+    "punto_operacion_comun": {
+      "modelo_a_esp90": {
+        "especificidad_objetivo": 0.9,
+        "sensibilidad": 0.8079,
+        "umbral": 0.2632
+      },
+      "modelo_b_esp90": {
+        "especificidad_objetivo": 0.9,
+        "sensibilidad": 0.2254,
+        "umbral": 0.6801
+      }
+    }
+  },
+  "calibracion_test_interno": {
+    "ece": 0.1377,
+    "brier": 0.1424
+  }
+}
