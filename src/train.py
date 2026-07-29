@@ -176,6 +176,11 @@ def main() -> None:
                     "val_auroc": best_auroc,
                     "threshold": threshold,
                     "val_metrics": val_m,
+                    # Necesaria para corregir el a priori al aplicar el modelo a
+                    # una población con otra prevalencia (ver src/calibration.py).
+                    "train_prevalence": float(
+                        manifest[manifest["split"] == "train"]["label"].mean()
+                    ),
                 },
                 out_dir / "best.pth",
             )
