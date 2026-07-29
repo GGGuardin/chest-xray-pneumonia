@@ -69,6 +69,10 @@ def main() -> None:
     ap.add_argument("--batch-size", type=int, default=None)
     ap.add_argument("--arch", default=None)
     ap.add_argument("--out-dir", default=None)
+    ap.add_argument("--seed", type=int, default=None,
+                    help="Sobrescribe la semilla: repetir con varias mide la varianza de "
+                         "inicialización, sin la cual una diferencia entre modelos no es "
+                         "interpretable")
     ap.add_argument("--limit-train", type=int, default=None,
                     help="Usa solo N imágenes de train (prueba rápida de humo)")
     ap.add_argument("--device", default="auto")
@@ -76,7 +80,8 @@ def main() -> None:
 
     cfg = load_config(args.config)
     for key, value in [("epochs", args.epochs), ("batch_size", args.batch_size),
-                       ("arch", args.arch), ("manifest", args.manifest), ("out_dir", args.out_dir)]:
+                       ("arch", args.arch), ("manifest", args.manifest),
+                       ("out_dir", args.out_dir), ("seed", args.seed)]:
         if value is not None:
             cfg[key] = value
 
