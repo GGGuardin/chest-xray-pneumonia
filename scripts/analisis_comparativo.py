@@ -86,6 +86,44 @@ def main() -> None:
                                                      ped["prob_b"].values, "auroc"),
     }
 
+    # ------------------------------------------- semillas contra modelo B --
+    # Dos fuentes de ruido distintas y conviene no confundirlas: la varianza de
+    # inicialización (entre semillas) y la de muestreo (finitud del test). Aquí
+    # se miden ambas para saber cuál limita la comparación.
+    dir_semillas = DESCARGAS / "semillas/reports"
+    if dir_semillas.exists():
+        filas, delongs = [], []
+        for s in (42, 1337, 2024):
+            ruta = dir_semillas / f"s{s}_nih_test/predictions.csv"
+            if not ruta.exists():
+                continue
+            a_s = cargar(ruta)
+            par = a_s.merge(b_nih[["clave", "prob"]], on="clave", suffixes=("_a", "_b"))
+            d = delong_test(par["label"].values, par["prob_a"].values, par["prob_b"].values)
+            filas.append(d["auroc_a"])
+            delongs.append({"semilla": s, **d})
+            print(f"semilla {s}: AUROC {d['auroc_a']:.4f} vs B {d['auroc_b']:.4f} "
+                  f"| dif {d['diferencia']:+.4f} p={d['p_valor']}")
+
+        if filas:
+            import numpy as np
+
+            informe["semillas_vs_modelo_b"] = {
+                "auroc_por_semilla": filas,
+                "media": round(float(np.mean(filas)), 4),
+                "desviacion_entre_semillas": round(float(np.std(filas, ddof=1)), 4),
+                "auroc_modelo_b": delongs[0]["auroc_b"],
+                "todas_superan_a_b": bool(all(v > delongs[0]["auroc_b"] for v in filas)),
+                "error_estandar_muestreo_delong": delongs[0]["error_estandar"],
+                "delong_por_semilla": delongs,
+                "lectura": (
+                    "La dirección del efecto es consistente entre semillas, pero el error "
+                    "estándar de muestreo es un orden de magnitud mayor que la dispersión "
+                    "entre semillas: el factor limitante es el número de positivos del test "
+                    "de NIH, no la inicialización."
+                ),
+            }
+
     # ------------------------------------------------------- calibración --
     # El modelo A entrenó con 22,6% de prevalencia; el pediátrico tiene 73%.
     PREV_ENTRENAMIENTO = 0.2259

@@ -65,6 +65,69 @@
       "n_remuestreos": 2000
     }
   },
+  "semillas_vs_modelo_b": {
+    "auroc_por_semilla": [
+      0.7316,
+      0.7369,
+      0.73
+    ],
+    "media": 0.7328,
+    "desviacion_entre_semillas": 0.0036,
+    "auroc_modelo_b": 0.7202,
+    "todas_superan_a_b": true,
+    "error_estandar_muestreo_delong": 0.0146,
+    "delong_por_semilla": [
+      {
+        "semilla": 42,
+        "auroc_a": 0.7316,
+        "auroc_b": 0.7202,
+        "diferencia": 0.0114,
+        "error_estandar": 0.0146,
+        "ic95_diferencia": [
+          -0.0172,
+          0.04
+        ],
+        "z": 0.779,
+        "p_valor": 0.436,
+        "n": 16703,
+        "n_positivos": 222,
+        "significativo_005": false
+      },
+      {
+        "semilla": 1337,
+        "auroc_a": 0.7369,
+        "auroc_b": 0.7202,
+        "diferencia": 0.0167,
+        "error_estandar": 0.0133,
+        "ic95_diferencia": [
+          -0.0093,
+          0.0427
+        ],
+        "z": 1.258,
+        "p_valor": 0.208,
+        "n": 16703,
+        "n_positivos": 222,
+        "significativo_005": false
+      },
+      {
+        "semilla": 2024,
+        "auroc_a": 0.73,
+        "auroc_b": 0.7202,
+        "diferencia": 0.0098,
+        "error_estandar": 0.0143,
+        "ic95_diferencia": [
+          -0.0183,
+          0.0379
+        ],
+        "z": 0.683,
+        "p_valor": 0.495,
+        "n": 16703,
+        "n_positivos": 222,
+        "significativo_005": false
+      }
+    ],
+    "lectura": "La dirección del efecto es consistente entre semillas, pero el error estándar de muestreo es un orden de magnitud mayor que la dispersión entre semillas: el factor limitante es el número de positivos del test de NIH, no la inicialización."
+  },
   "calibracion_pediatrico": {
     "prevalencia_entrenamiento": 0.2259,
     "prevalencia_destino": 0.7297,

@@ -186,23 +186,53 @@ en [`results/`](results).
 El modelo B se queda en 0,720, por debajo de la referencia de CheXNet (0,768)
 para esta misma etiqueta y dataset.
 
+### Suelo de ruido: tres semillas
+
+Sin esto, ninguna diferencia entre modelos es interpretable. Tres entrenamientos
+idénticos salvo la inicialización y el orden de los lotes, mismo split:
+
+| Métrica | Valores | Media | Desv. típica | Rango |
+|---|---|---|---|---|
+| AUROC (test RSNA) | 0,8810 · 0,8895 · 0,8851 | **0,8852** | **0,0043** | 0,0085 |
+| AUPRC (test RSNA) | 0,7057 · 0,7177 · 0,7172 | 0,7135 | 0,0068 | 0,0120 |
+
+**Cualquier diferencia de AUROC menor que ~0,009 en este montaje es ruido de
+inicialización.** El 0,885 del modelo de referencia es representativo, no un
+golpe de suerte.
+
 ### El resultado más incómodo: entrenar en NIH no aportó ventaja medible
 
 Comparación **pareada** sobre las mismas 16.703 imágenes del test retenido de NIH,
-con test de DeLong ([`results/comparativa/`](results/comparativa)):
+con test de DeLong y las tres semillas ([`results/comparativa/`](results/comparativa)):
 
-| Evaluado sobre el test de NIH (n=16.703) | AUROC |
-|---|---|
-| Modelo **B**, entrenado *en* NIH con 78.000 imágenes | 0,720 |
-| Modelo **A**, entrenado en RSNA, que nunca vio NIH | 0,736 |
-| **Diferencia** | **+0,016** (IC95% −0,012 a +0,043) |
-| **DeLong** | z = 1,11 · **p = 0,27** · no significativa |
+| Evaluado sobre el test de NIH (n=16.703, 222 positivos) | AUROC | p (DeLong) |
+|---|---|---|
+| Modelo **B**, entrenado *en* NIH con 78.000 imágenes | 0,7202 | — |
+| Modelo **A**, semilla 42 | 0,7316 | 0,44 |
+| Modelo **A**, semilla 1337 | 0,7369 | 0,21 |
+| Modelo **A**, semilla 2024 | 0,7300 | 0,50 |
+| **Modelo A, media** | **0,7328** | no significativa |
 
 Un modelo que **nunca vio una sola imagen de NIH** rinde igual que uno entrenado
-con sus 78.000. La diferencia favorece nominalmente al modelo A, pero **no es
-estadísticamente distinguible de cero**: la afirmación defendible es *empate*, no
-*"A gana"*. 78.000 imágenes etiquetadas por NLP no aportaron ventaja medible sobre
-transferir desde 18.000 anotadas por radiólogos.
+con sus 78.000. **Las tres semillas superan al modelo B**, así que la dirección
+del efecto es consistente; pero ninguna comparación alcanza significación, de modo
+que la afirmación defendible es *empate*, no *"A gana"*.
+
+Y hay un detalle metodológico que merece la pena porque señala qué haría falta
+para resolverlo:
+
+| Fuente de ruido | Magnitud |
+|---|---|
+| Dispersión entre semillas | 0,0036 |
+| **Error estándar de muestreo (DeLong)** | **0,0146** |
+
+El ruido de muestreo es **cuatro veces mayor** que el de inicialización. El factor
+limitante no son las semillas ni el entrenamiento: son los **222 positivos** que
+tiene el test de NIH con una prevalencia del 1,3%. Para zanjar la cuestión no hace
+falta entrenar mejor, hace falta un conjunto de evaluación con más casos positivos.
+
+La conclusión sustantiva se sostiene igual: 78.000 imágenes etiquetadas por NLP no
+aportaron ventaja medible sobre transferir desde 18.000 anotadas por radiólogos.
 
 Al salir de ambos dominios, en cambio, la diferencia es aplastante y sí
 significativa:
@@ -294,17 +324,32 @@ gravedad del paciente.**
 
 ### Grad-CAM: la atención sí cae en el pulmón
 
-| Grupo | Modelo A (RSNA) | Modelo B (NIH) |
-|---|---|---|
-| Detecciones positivas (p ≥ umbral) | **0,237** (n=4) | **0,334** (n=5) |
-| Resto de casos | 0,579 (n=11) | 0,761 (n=11) |
-| *Baseline de un mapa uniforme* | *0,510* | *0,510* |
+Auditoría sobre **400 imágenes** del test (186 detecciones positivas), que es lo
+que permite afirmar algo:
 
-En los casos que cada modelo da por positivos, la atención se concentra en el
-centro —claramente por debajo del 0,510 de un mapa sin estructura—, e
-inspeccionando los mapas del modelo A se ve que ignora electrodos de ECG, cables
-y marcadores de lateralidad. El modelo A localiza mejor que el B (0,237 frente a
-0,334), coherente con el resto de sus métricas.
+| Grupo | n | Energía en bordes |
+|---|---|---|
+| **Detecciones positivas** (p ≥ umbral) | 186 | **0,266** |
+| Resto de casos | 206 | 0,741 |
+| Mapas nulos | 8 | — |
+| *Baseline de un mapa uniforme* | — | *0,510* |
+| *Media global, sin separar grupos* | 400 | *0,516* |
+
+Cuando el modelo da una imagen por positiva, la atención se concentra en la zona
+central: **0,266 frente al 0,510** de un mapa sin estructura, sobre 186 casos.
+Inspeccionando los mapas se ve que ignora electrodos de ECG, cables y marcadores
+de lateralidad.
+
+Fíjate en la última fila, que es la lección metodológica: **la media global es
+0,516, prácticamente idéntica al baseline uniforme.** Quien reportase solo ese
+número concluiría que el modelo no localiza nada — exactamente la conclusión
+contraria a la correcta. El promedio queda arrastrado por los 206 casos negativos,
+donde el Grad-CAM de la clase positiva no tiene nada que señalar y su energía en
+bordes es alta por construcción. Por eso `explain.py` separa ambos grupos y compara
+contra el baseline uniforme en lugar de contra un umbral inventado.
+
+En la primera versión esta auditoría se hizo con 16 imágenes y 4 detecciones, lo
+que no sostenía ninguna afirmación; con 186 sí.
 
 Un detalle metodológico que costó descubrir: **promediar todas las imágenes juntas
 da 0,488 y simula un atajo espurio inexistente.** En los negativos bien

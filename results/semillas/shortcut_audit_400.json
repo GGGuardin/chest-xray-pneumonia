@@ -1,0 +1,2420 @@
+{
+  "n_imagenes": 400,
+  "baseline_uniforme": 0.51,
+  "umbral_operativo": 0.6005,
+  "marco_evaluado": "15% exterior (~51% del área total)",
+  "detecciones_positivas": {
+    "n": 186,
+    "energia_bordes_media": 0.2664,
+    "veredicto": "atención centrada en el pulmón"
+  },
+  "resto_de_casos": {
+    "n": 206,
+    "energia_bordes_media": 0.7409,
+    "nota": "mapa sin señal; energía alta esperada, no indica atajo"
+  },
+  "mapas_nulos": 8,
+  "energia_bordes_media_global": 0.5157,
+  "detalle": [
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c2c49031-f803-495d-9abf-32589c04a99b.dcm",
+      "label": 1,
+      "prob": 0.14508068561553955,
+      "border_energy": 0.8990427851676941
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b159a6c8-a3de-419a-a9c4-41309ef57e0a.dcm",
+      "label": 1,
+      "prob": 0.9547595381736755,
+      "border_energy": 0.2435082197189331
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/2aae181e-a4b7-47f4-ac47-e99001b9008b.dcm",
+      "label": 1,
+      "prob": 0.1495307832956314,
+      "border_energy": 0.9373112916946411
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3afea858-8721-468b-9e94-b795d195ef62.dcm",
+      "label": 1,
+      "prob": 0.8343366384506226,
+      "border_energy": 0.2918155789375305
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/74340139-eebf-445a-a0a1-2b9101233a3a.dcm",
+      "label": 1,
+      "prob": 0.718902587890625,
+      "border_energy": 0.24028438329696655
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f21a2acc-e6f1-4132-b094-83c9e94a5e7d.dcm",
+      "label": 1,
+      "prob": 0.8472400307655334,
+      "border_energy": 0.2540484666824341
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ac70e5ac-f93d-4fbf-a8d8-6db501f56cc2.dcm",
+      "label": 1,
+      "prob": 0.43033385276794434,
+      "border_energy": 0.4209270477294922
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/47f08678-452a-458c-9933-ccd0f1126f20.dcm",
+      "label": 1,
+      "prob": 0.6593276858329773,
+      "border_energy": 0.22725695371627808
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/aa62706c-0083-4418-ad03-72beaf1b2446.dcm",
+      "label": 1,
+      "prob": 0.7182291746139526,
+      "border_energy": 0.2825191020965576
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f3bea900-7094-44d2-bb12-fdec80766f9d.dcm",
+      "label": 1,
+      "prob": 0.7508798837661743,
+      "border_energy": 0.1318809986114502
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ad89c871-f23f-40a2-a39e-53db93884b59.dcm",
+      "label": 1,
+      "prob": 0.9532217979431152,
+      "border_energy": 0.16747158765792847
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5f40e828-88a4-4f07-8286-b5446f4d4790.dcm",
+      "label": 1,
+      "prob": 0.9750435948371887,
+      "border_energy": 0.28061360120773315
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b3e5becd-9009-4981-82ab-bbf28f4a834b.dcm",
+      "label": 1,
+      "prob": 0.39605554938316345,
+      "border_energy": 0.39531224966049194
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/71576c22-51ce-4510-98d8-6933e0b9b810.dcm",
+      "label": 1,
+      "prob": 0.7654367685317993,
+      "border_energy": 0.26209527254104614
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f49074c2-e73d-4884-804e-a2caab37bcf9.dcm",
+      "label": 1,
+      "prob": 0.7945234775543213,
+      "border_energy": 0.2787806987762451
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3a037b3d-5100-4ba1-bbb4-eb9c22d9e572.dcm",
+      "label": 1,
+      "prob": 0.31350576877593994,
+      "border_energy": 0.6592593193054199
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8dd9cf58-1874-4592-b5aa-f5fd962337fd.dcm",
+      "label": 1,
+      "prob": 0.5373404622077942,
+      "border_energy": 0.2541240453720093
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8f664785-3fed-4146-a80b-e844738feff0.dcm",
+      "label": 1,
+      "prob": 0.9702976942062378,
+      "border_energy": 0.2730715870857239
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5a884330-8bda-4ec7-a502-677150e3d5f7.dcm",
+      "label": 1,
+      "prob": 0.60405433177948,
+      "border_energy": 0.18761616945266724
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/60a5f9e2-e144-4804-be95-0c7634cf889a.dcm",
+      "label": 1,
+      "prob": 0.07193519920110703,
+      "border_energy": 0.9222438335418701
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/77823cf2-2603-4db9-9c50-ec8ae13674e3.dcm",
+      "label": 1,
+      "prob": 0.8298157453536987,
+      "border_energy": 0.20103389024734497
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b5c3e1a0-d4ba-413f-b571-809ee8aedf19.dcm",
+      "label": 1,
+      "prob": 0.7485218644142151,
+      "border_energy": 0.287120521068573
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e6295ee0-bb33-49e3-9376-8b78f5a3fc52.dcm",
+      "label": 1,
+      "prob": 0.7530237436294556,
+      "border_energy": 0.16340982913970947
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cc7ab8d7-56f9-45e8-b585-c3dc132de8cf.dcm",
+      "label": 1,
+      "prob": 0.9595750570297241,
+      "border_energy": 0.29907703399658203
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fd43dbd5-4dcb-4b62-ae2a-e991a703b48d.dcm",
+      "label": 1,
+      "prob": 0.7520914673805237,
+      "border_energy": 0.27401357889175415
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/30d44656-0af9-4870-b43c-f83de6cd8f2e.dcm",
+      "label": 1,
+      "prob": 0.0887443944811821,
+      "border_energy": 0.8741275668144226
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ee52c757-3e8e-4e65-9818-52ad4c00622a.dcm",
+      "label": 1,
+      "prob": 0.7188679575920105,
+      "border_energy": 0.3042401671409607
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/889fbb03-ad00-4da1-abea-6ad0a8843335.dcm",
+      "label": 1,
+      "prob": 0.8222154378890991,
+      "border_energy": 0.2801429033279419
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fef7b294-017c-4491-9e57-119086855785.dcm",
+      "label": 1,
+      "prob": 0.8853206634521484,
+      "border_energy": 0.3007665276527405
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/86936d5f-73fb-462e-bcbc-5815879cb3d6.dcm",
+      "label": 1,
+      "prob": 0.8903188109397888,
+      "border_energy": 0.3155653476715088
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/55bf665e-e53b-4320-baa7-4fdaa54447db.dcm",
+      "label": 1,
+      "prob": 0.7154532074928284,
+      "border_energy": 0.398989737033844
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a03a2aab-7039-4743-9dab-3870899b1f35.dcm",
+      "label": 1,
+      "prob": 0.4957529604434967,
+      "border_energy": 0.14890050888061523
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bc4fb949-f968-4360-a856-2b506e6bf2e3.dcm",
+      "label": 1,
+      "prob": 0.5476512312889099,
+      "border_energy": 0.3592161536216736
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/537cd661-6eba-499a-a4bb-2f442897db12.dcm",
+      "label": 1,
+      "prob": 0.8088513016700745,
+      "border_energy": 0.28768396377563477
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/30ac4f03-d153-4c6a-a13b-e47855fcb2fb.dcm",
+      "label": 1,
+      "prob": 0.8522807955741882,
+      "border_energy": 0.2901787757873535
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a2a093bc-6179-4a31-bcbb-645d2f136a80.dcm",
+      "label": 1,
+      "prob": 0.4522826671600342,
+      "border_energy": 0.2136884331703186
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ba06c828-df8c-4c6f-a869-b3ea7d1991cd.dcm",
+      "label": 1,
+      "prob": 0.9723953604698181,
+      "border_energy": 0.25828874111175537
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1cee8f22-8603-49a8-a69c-ea807158db1b.dcm",
+      "label": 1,
+      "prob": 0.7631538510322571,
+      "border_energy": 0.21181327104568481
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/52510771-8dac-4123-9d82-6a8df9ce0a50.dcm",
+      "label": 1,
+      "prob": 0.5590265393257141,
+      "border_energy": 0.4733628034591675
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bec35362-40e8-4f43-99aa-8d1eec483456.dcm",
+      "label": 1,
+      "prob": 0.5833589434623718,
+      "border_energy": 0.15445822477340698
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0a9c4c04-5918-48da-9ba1-b2a3add66ae9.dcm",
+      "label": 1,
+      "prob": 0.9662571549415588,
+      "border_energy": 0.24893099069595337
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/158cf8f2-8066-42f9-aad0-f52e1bc8de07.dcm",
+      "label": 1,
+      "prob": 0.8816840052604675,
+      "border_energy": 0.35411524772644043
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f88e605a-a637-4df6-a153-5c51bb304a73.dcm",
+      "label": 1,
+      "prob": 0.97877436876297,
+      "border_energy": 0.22265642881393433
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5f5a17ca-f3c5-40d3-9e81-6adb42e45a05.dcm",
+      "label": 1,
+      "prob": 0.8928585648536682,
+      "border_energy": 0.2479034662246704
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/47ba820c-c63e-4efa-90af-7b88e6741151.dcm",
+      "label": 1,
+      "prob": 0.7559009790420532,
+      "border_energy": 0.340876042842865
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0918aae8-b873-4510-b975-c6e87df90f58.dcm",
+      "label": 1,
+      "prob": 0.8706976771354675,
+      "border_energy": 0.361706018447876
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7081380a-00a7-49a5-b574-a7f8a41f582d.dcm",
+      "label": 1,
+      "prob": 0.9375969767570496,
+      "border_energy": 0.22965997457504272
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fba0309a-edbe-4d97-b806-f6fe8460ced3.dcm",
+      "label": 1,
+      "prob": 0.850574254989624,
+      "border_energy": 0.31641680002212524
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/baf525a5-daf5-465e-ba60-b779cce1e576.dcm",
+      "label": 1,
+      "prob": 0.29390934109687805,
+      "border_energy": 0.45021045207977295
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d7131b83-ef4c-4a0a-b1a2-d09c163bda48.dcm",
+      "label": 1,
+      "prob": 0.8849300146102905,
+      "border_energy": 0.38654768466949463
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b6468969-2e9b-4a36-aaa0-2c77b205105e.dcm",
+      "label": 1,
+      "prob": 0.6214015483856201,
+      "border_energy": 0.33923572301864624
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/58e3c190-8ab1-465c-bf3e-22a2deb0b9f2.dcm",
+      "label": 1,
+      "prob": 0.9318119287490845,
+      "border_energy": 0.2506921887397766
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6c499ba1-df4c-4b47-b81e-34ded09a9dc4.dcm",
+      "label": 1,
+      "prob": 0.8899053335189819,
+      "border_energy": 0.3216356635093689
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9a75986a-bb57-4f82-b9cc-af6a5a9ea8c6.dcm",
+      "label": 1,
+      "prob": 0.8918798565864563,
+      "border_energy": 0.16386449337005615
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b0c6e2ba-ceaa-4eb9-b241-7c387f8df4ef.dcm",
+      "label": 1,
+      "prob": 0.9826170802116394,
+      "border_energy": 0.1597774624824524
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/88dfac4d-30d4-42fe-9122-82246ecee401.dcm",
+      "label": 1,
+      "prob": 0.9180387854576111,
+      "border_energy": 0.19972461462020874
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ab708945-6f3a-4652-85df-4f02d6079a75.dcm",
+      "label": 1,
+      "prob": 0.6824814677238464,
+      "border_energy": 0.3212796449661255
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/36144553-f906-4552-9d9e-e0c25885dcba.dcm",
+      "label": 1,
+      "prob": 0.587643027305603,
+      "border_energy": 0.22853392362594604
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3f9d98ed-1a89-436c-a528-8d34b10a8530.dcm",
+      "label": 1,
+      "prob": 0.7561788558959961,
+      "border_energy": 0.2598778009414673
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/081a1f56-6c47-4b80-988a-3d357c977d65.dcm",
+      "label": 1,
+      "prob": 0.6488808393478394,
+      "border_energy": 0.25901973247528076
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/457e1b0b-89f5-4f7f-b752-fd8420414b97.dcm",
+      "label": 1,
+      "prob": 0.7134850025177002,
+      "border_energy": 0.274715781211853
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b6f02ca4-bbfe-4728-a2a3-74ec9c55b281.dcm",
+      "label": 1,
+      "prob": 0.8901191353797913,
+      "border_energy": 0.29229801893234253
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/77d82c92-f380-4e26-b39d-b43d5c814833.dcm",
+      "label": 1,
+      "prob": 0.774017870426178,
+      "border_energy": 0.20559167861938477
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1565fd6c-9432-454a-87e4-937fd5ad5b60.dcm",
+      "label": 1,
+      "prob": 0.3877978026866913,
+      "border_energy": 0.6260623931884766
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/34c9ca0b-413a-447a-ab1a-66b08a53af7d.dcm",
+      "label": 1,
+      "prob": 0.22936716675758362,
+      "border_energy": 0.9211154580116272
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e56de97f-aac0-4a7c-8ddd-f861cae269f1.dcm",
+      "label": 1,
+      "prob": 0.9844202399253845,
+      "border_energy": 0.202508807182312
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9e53a361-9507-4b07-9b3b-56bad312fb6a.dcm",
+      "label": 1,
+      "prob": 0.7395824790000916,
+      "border_energy": 0.3593299984931946
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b31c76eb-b9ee-4c98-88f7-b8c04d7aa33f.dcm",
+      "label": 1,
+      "prob": 0.26611757278442383,
+      "border_energy": 0.7776708602905273
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bc34f68f-0c2b-4e9e-be5e-377f531a1207.dcm",
+      "label": 1,
+      "prob": 0.25038543343544006,
+      "border_energy": 0.9419280290603638
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fea6e37a-41c3-45ce-9b27-6f1bed1bc7f4.dcm",
+      "label": 1,
+      "prob": 0.9882136583328247,
+      "border_energy": 0.2669997215270996
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bbcafe04-651f-4c43-bd9c-c94d51900478.dcm",
+      "label": 1,
+      "prob": 0.6057168841362,
+      "border_energy": 0.2733415365219116
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/25d34f4c-7ebe-4fb7-a609-f0d98f5b06c5.dcm",
+      "label": 1,
+      "prob": 0.465040922164917,
+      "border_energy": 0.4467552900314331
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/19377a2b-4f78-42f5-bbde-27c797d84cfb.dcm",
+      "label": 1,
+      "prob": 0.6763644814491272,
+      "border_energy": 0.28768855333328247
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5415656d-d814-46c2-a8c7-ab2831c42a91.dcm",
+      "label": 1,
+      "prob": 0.9560244679450989,
+      "border_energy": 0.20880568027496338
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/314f6860-4382-4ccd-a787-34b388e673f1.dcm",
+      "label": 1,
+      "prob": 0.77376389503479,
+      "border_energy": 0.26693791151046753
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c0608b6d-a375-4cda-8133-b5ec73217435.dcm",
+      "label": 1,
+      "prob": 0.842579185962677,
+      "border_energy": 0.1939060091972351
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/911027e5-82d0-44f8-af40-de9049922430.dcm",
+      "label": 1,
+      "prob": 0.8349778056144714,
+      "border_energy": 0.21032166481018066
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/994a1363-1acc-4cf3-9703-13c0665dd4bc.dcm",
+      "label": 1,
+      "prob": 0.9277216792106628,
+      "border_energy": 0.2788543105125427
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b8fbe64b-f29f-4c6e-9b4e-999d69719ab8.dcm",
+      "label": 1,
+      "prob": 0.8775684237480164,
+      "border_energy": 0.19552749395370483
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/142c7419-9cd2-4436-8860-cd2c4355abff.dcm",
+      "label": 1,
+      "prob": 0.9859004616737366,
+      "border_energy": 0.2968478798866272
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f454d325-7967-4c13-ab5f-139dc0f1ecbf.dcm",
+      "label": 1,
+      "prob": 0.7782888412475586,
+      "border_energy": 0.17232495546340942
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3b94276b-4b65-4339-a629-0500f0171c45.dcm",
+      "label": 1,
+      "prob": 0.07460542023181915,
+      "border_energy": 0.9557502269744873
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f26e5df0-bd0d-4d54-86b6-ea40ca0952a3.dcm",
+      "label": 1,
+      "prob": 0.9088384509086609,
+      "border_energy": 0.1747208833694458
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/15508c0e-a6bd-4d3a-9be2-76466b9f7eb1.dcm",
+      "label": 1,
+      "prob": 0.9781870245933533,
+      "border_energy": 0.22904717922210693
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d51472ae-a24e-4340-b468-54c883a12c41.dcm",
+      "label": 1,
+      "prob": 0.35893258452415466,
+      "border_energy": 0.5424340963363647
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ebd4509c-0b8f-4be2-aa51-bebad08235be.dcm",
+      "label": 1,
+      "prob": 0.9083647727966309,
+      "border_energy": 0.21943354606628418
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1755b457-2c7f-4589-999e-aa172dbbb188.dcm",
+      "label": 1,
+      "prob": 0.5744176506996155,
+      "border_energy": 0.278361976146698
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3da7cc6a-7864-4ab8-8842-297650b7db19.dcm",
+      "label": 1,
+      "prob": 0.9043827056884766,
+      "border_energy": 0.16071128845214844
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3b4bd4e1-b078-4d51-84c5-7e5e3905fb24.dcm",
+      "label": 1,
+      "prob": 0.8621357679367065,
+      "border_energy": 0.2868162989616394
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3e1c25da-aa39-4bf9-8ee1-71b5a0f4977e.dcm",
+      "label": 1,
+      "prob": 0.2301829308271408,
+      "border_energy": 0.7305787801742554
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5039abb8-29f6-4e8a-92e6-fbcb74804a7e.dcm",
+      "label": 1,
+      "prob": 0.8599492311477661,
+      "border_energy": 0.12050753831863403
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/aa1970b8-5039-4ba9-a933-4bd96ad81a91.dcm",
+      "label": 1,
+      "prob": 0.9916342496871948,
+      "border_energy": 0.23112761974334717
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/659311dc-e5f9-4150-90c6-65e762f170e6.dcm",
+      "label": 1,
+      "prob": 0.5258164405822754,
+      "border_energy": 0.4159618020057678
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c1cddf32-b957-4753-acaa-472ab1447e86.dcm",
+      "label": 1,
+      "prob": 0.37761029601097107,
+      "border_energy": 0.3414219617843628
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bc84827e-f1af-43c8-a787-961139eb9940.dcm",
+      "label": 1,
+      "prob": 0.4465009868144989,
+      "border_energy": 0.39594560861587524
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0cb52e59-3b50-41fb-a022-5b24741dbcfc.dcm",
+      "label": 1,
+      "prob": 0.9397768378257751,
+      "border_energy": 0.2604703903198242
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a0930be8-f005-4141-a181-c1494cba358f.dcm",
+      "label": 1,
+      "prob": 0.8490903973579407,
+      "border_energy": 0.23492103815078735
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b5b4468f-e5e2-48a5-aa42-e08547be1172.dcm",
+      "label": 1,
+      "prob": 0.296592652797699,
+      "border_energy": 0.9087200164794922
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ab6619ee-546c-4245-be8d-6e0eece3581a.dcm",
+      "label": 1,
+      "prob": 0.9164949059486389,
+      "border_energy": 0.24805724620819092
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b9de5953-04f1-4b45-b601-b2408b36fffa.dcm",
+      "label": 1,
+      "prob": 0.8815793395042419,
+      "border_energy": 0.31286466121673584
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bb13f699-a024-4946-a481-8d2e91d3cf72.dcm",
+      "label": 1,
+      "prob": 0.9492702484130859,
+      "border_energy": 0.26365792751312256
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fe1289af-87c8-49c6-800c-1e87b2296df8.dcm",
+      "label": 1,
+      "prob": 0.8353626132011414,
+      "border_energy": 0.2659844160079956
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bda68f49-6eb2-4afa-86bf-89a3d4378100.dcm",
+      "label": 1,
+      "prob": 0.3815007507801056,
+      "border_energy": 0.5221800208091736
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e191c1c9-94e8-48fe-8ad3-bda04a74a905.dcm",
+      "label": 1,
+      "prob": 0.9338325262069702,
+      "border_energy": 0.2530689835548401
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/09875c3b-c520-4b08-89b0-a7a7299c37b2.dcm",
+      "label": 1,
+      "prob": 0.43959662318229675,
+      "border_energy": 0.26769381761550903
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/091fa211-36c0-42a4-bd7d-c8bced664d9d.dcm",
+      "label": 1,
+      "prob": 0.030060138553380966,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a8935cae-155c-4200-afc5-6fd74dd1b31b.dcm",
+      "label": 1,
+      "prob": 0.9846603274345398,
+      "border_energy": 0.19755470752716064
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b181eb13-a6b0-4576-afcd-0e23c90723ba.dcm",
+      "label": 1,
+      "prob": 0.6933092474937439,
+      "border_energy": 0.26801538467407227
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/94c389e6-2850-4ce8-994f-11bf91f656e1.dcm",
+      "label": 1,
+      "prob": 0.8027776479721069,
+      "border_energy": 0.3251163363456726
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/be27131b-ca91-4ba0-bf1c-7b6f9f57b4b0.dcm",
+      "label": 1,
+      "prob": 0.7194063067436218,
+      "border_energy": 0.18713104724884033
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1707921a-8b1d-419e-b5de-6e069bc9e4eb.dcm",
+      "label": 1,
+      "prob": 0.8913102149963379,
+      "border_energy": 0.2945314645767212
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/40696bda-f0b2-492f-ad2b-f904a7967866.dcm",
+      "label": 1,
+      "prob": 0.8428192734718323,
+      "border_energy": 0.16176199913024902
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9402fbff-b5cd-4372-a203-074a2f7d8bd1.dcm",
+      "label": 1,
+      "prob": 0.7812310457229614,
+      "border_energy": 0.2365809679031372
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4d43c0dd-d87b-4ccf-83df-c82be5ea2aef.dcm",
+      "label": 1,
+      "prob": 0.9260798096656799,
+      "border_energy": 0.21633130311965942
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/25b15466-0151-43e1-b52a-830905c853d4.dcm",
+      "label": 1,
+      "prob": 0.4394510090351105,
+      "border_energy": 0.3541942238807678
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/164a9325-6bb3-4af3-9217-e7ca73cbbb1f.dcm",
+      "label": 1,
+      "prob": 0.91600501537323,
+      "border_energy": 0.194494366645813
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/172f8b71-1d19-4a36-ae9f-41ae528c72be.dcm",
+      "label": 1,
+      "prob": 0.9449892044067383,
+      "border_energy": 0.27394354343414307
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f92793eb-6396-4597-ad39-2cc6e8eff84b.dcm",
+      "label": 1,
+      "prob": 0.9107804894447327,
+      "border_energy": 0.21557801961898804
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a74060c8-870a-47e1-9bc9-c1226caf9a87.dcm",
+      "label": 1,
+      "prob": 0.6937944889068604,
+      "border_energy": 0.3348044753074646
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/17ec1772-41a6-4bd6-a2a0-b9d45599eb28.dcm",
+      "label": 1,
+      "prob": 0.7387427091598511,
+      "border_energy": 0.21766269207000732
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a68a107d-2929-430e-bcab-d68d6de7802a.dcm",
+      "label": 1,
+      "prob": 0.9537210464477539,
+      "border_energy": 0.2086769938468933
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6f964e55-2f17-4361-b6f2-3af8e5d6e55a.dcm",
+      "label": 1,
+      "prob": 0.916641116142273,
+      "border_energy": 0.2330119013786316
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9b16af6c-5f7d-4550-a641-e41460c820c8.dcm",
+      "label": 1,
+      "prob": 0.27960458397865295,
+      "border_energy": 0.8451436161994934
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9ee3b37b-f1e7-4b02-8f8f-a8af4ce3990e.dcm",
+      "label": 1,
+      "prob": 0.5709718465805054,
+      "border_energy": 0.49980318546295166
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8d76ff2c-da0c-49dd-95cd-21d753f0495d.dcm",
+      "label": 1,
+      "prob": 0.9241164326667786,
+      "border_energy": 0.30662429332733154
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/747f9c4b-8bba-439f-8e31-d8529cb41850.dcm",
+      "label": 1,
+      "prob": 0.5721564888954163,
+      "border_energy": 0.26375675201416016
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/737aa32f-2044-45a6-b50c-b3aadb51394a.dcm",
+      "label": 1,
+      "prob": 0.7797063589096069,
+      "border_energy": 0.30039137601852417
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f3088d94-d727-4381-ab83-1b2bc54c2505.dcm",
+      "label": 1,
+      "prob": 0.7151885628700256,
+      "border_energy": 0.35913407802581787
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5774a68f-e370-4522-a1c2-cc03e2bfb3b6.dcm",
+      "label": 1,
+      "prob": 0.8776271939277649,
+      "border_energy": 0.22393959760665894
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/69a4ab5a-da8a-4a93-9d83-801a700003e8.dcm",
+      "label": 1,
+      "prob": 0.9809766411781311,
+      "border_energy": 0.2537212371826172
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/03a9498c-549d-4e7d-800b-e74797f7f625.dcm",
+      "label": 1,
+      "prob": 0.42364418506622314,
+      "border_energy": 0.5917378664016724
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0f8f22cd-112a-47c5-8069-d767ed01b112.dcm",
+      "label": 1,
+      "prob": 0.6089680790901184,
+      "border_energy": 0.28676795959472656
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/83a9ae1b-36be-4a4c-a0cf-00e76a4f0463.dcm",
+      "label": 1,
+      "prob": 0.8851660490036011,
+      "border_energy": 0.18480461835861206
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5337cc53-2e5d-4583-8173-c130cbe8fc74.dcm",
+      "label": 1,
+      "prob": 0.643131673336029,
+      "border_energy": 0.4865676760673523
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4a4be7b1-6a74-49d9-b0cb-d9aef48f990c.dcm",
+      "label": 1,
+      "prob": 0.9842770099639893,
+      "border_energy": 0.24168527126312256
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1d193b54-7f79-4a6a-bcaf-352a03025019.dcm",
+      "label": 1,
+      "prob": 0.6495196223258972,
+      "border_energy": 0.29468709230422974
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bdfd8e85-cf42-4353-add4-2cb713d87bd5.dcm",
+      "label": 1,
+      "prob": 0.7107726335525513,
+      "border_energy": 0.2552008628845215
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f37a0400-beea-4925-8b4b-420f1b33284b.dcm",
+      "label": 1,
+      "prob": 0.5848922729492188,
+      "border_energy": 0.474004864692688
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/899a3c1f-3355-4092-88a6-67848ecc137d.dcm",
+      "label": 1,
+      "prob": 0.6399331092834473,
+      "border_energy": 0.25542527437210083
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b2ed5727-8a0e-485c-9db3-4d2e53fd35e6.dcm",
+      "label": 1,
+      "prob": 0.8922873139381409,
+      "border_energy": 0.4189656972885132
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9cf3c0e7-f25c-4358-b5a9-aca2e0b6f33e.dcm",
+      "label": 1,
+      "prob": 0.8144291639328003,
+      "border_energy": 0.28004908561706543
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/18ee3d5a-1d35-4f91-bef4-da13e40c4935.dcm",
+      "label": 1,
+      "prob": 0.31295379996299744,
+      "border_energy": 0.6306738257408142
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/04c08d05-e5f7-4de3-b0b3-d39b3bb9d113.dcm",
+      "label": 1,
+      "prob": 0.7841227650642395,
+      "border_energy": 0.22462517023086548
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b97b78b8-bcb0-4694-aa55-d3ca9c4396df.dcm",
+      "label": 1,
+      "prob": 0.8567698001861572,
+      "border_energy": 0.29847490787506104
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/60c027e6-b1fc-4064-9e9a-2301d520a19a.dcm",
+      "label": 1,
+      "prob": 0.6893424391746521,
+      "border_energy": 0.20390218496322632
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bc03198b-57f4-47b5-8808-114fd5cb9808.dcm",
+      "label": 1,
+      "prob": 0.8807805776596069,
+      "border_energy": 0.2386658787727356
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/28dfbd38-b24a-4cfb-a355-34c226dd2aa2.dcm",
+      "label": 1,
+      "prob": 0.6432971954345703,
+      "border_energy": 0.23938781023025513
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/45415872-fc2a-43ba-869d-5131c57622f1.dcm",
+      "label": 1,
+      "prob": 0.9524818062782288,
+      "border_energy": 0.24864423274993896
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/42705f2c-8bdc-4a9d-8e13-864b0a89be21.dcm",
+      "label": 1,
+      "prob": 0.9650259613990784,
+      "border_energy": 0.2385936975479126
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/08f9a388-c195-4b33-8acd-e05d4da14585.dcm",
+      "label": 1,
+      "prob": 0.5077245831489563,
+      "border_energy": 0.27063071727752686
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3b230c42-36a4-4f32-a891-2800c14e63a9.dcm",
+      "label": 1,
+      "prob": 0.77545565366745,
+      "border_energy": 0.3017122149467468
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7458057f-a75e-49ed-a22f-41960bfa2a00.dcm",
+      "label": 1,
+      "prob": 0.509388267993927,
+      "border_energy": 0.24091559648513794
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3c0f1edd-10c2-46da-a01c-a151aa88f2df.dcm",
+      "label": 1,
+      "prob": 0.9443114995956421,
+      "border_energy": 0.29465150833129883
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ea3d1dcb-9222-4e66-b7e6-a45e78bd339e.dcm",
+      "label": 1,
+      "prob": 0.9633426070213318,
+      "border_energy": 0.20129811763763428
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/17dc4e24-2228-4cdb-8052-9259a907f9c2.dcm",
+      "label": 1,
+      "prob": 0.9651646614074707,
+      "border_energy": 0.23847204446792603
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c2ed72cd-0390-46c3-ac73-601b1a875d5d.dcm",
+      "label": 1,
+      "prob": 0.8916223645210266,
+      "border_energy": 0.3224753737449646
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/66dd2ba0-b107-4261-8acd-6a6a782f1d5f.dcm",
+      "label": 1,
+      "prob": 0.3905867040157318,
+      "border_energy": 0.3713013529777527
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a55c56f0-ed46-4761-80cb-5472187e70cb.dcm",
+      "label": 1,
+      "prob": 0.8669134378433228,
+      "border_energy": 0.2772817611694336
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5b72c6d2-e7eb-44a6-b625-78d2ec0008f2.dcm",
+      "label": 1,
+      "prob": 0.9170829057693481,
+      "border_energy": 0.30327266454696655
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d5e9a92d-fb2f-416b-8731-4f7435d6c9c5.dcm",
+      "label": 1,
+      "prob": 0.9788026809692383,
+      "border_energy": 0.2885724902153015
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3b12ae6f-0386-45b2-8fab-5ae6b93fbfda.dcm",
+      "label": 1,
+      "prob": 0.506723165512085,
+      "border_energy": 0.08596992492675781
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/41560731-6e3f-44b9-b951-e789bb8e0cc8.dcm",
+      "label": 1,
+      "prob": 0.9803771376609802,
+      "border_energy": 0.21109247207641602
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9f1ab54d-5fb8-4464-9617-26a7d25f26cd.dcm",
+      "label": 1,
+      "prob": 0.5298571586608887,
+      "border_energy": 0.4196937680244446
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c9ed35c2-1563-47e5-9411-b34f2e9f36ca.dcm",
+      "label": 1,
+      "prob": 0.9744499325752258,
+      "border_energy": 0.24585270881652832
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7e7765a1-8baa-4c1b-abdd-34113781994d.dcm",
+      "label": 1,
+      "prob": 0.932166576385498,
+      "border_energy": 0.3243619203567505
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c208db34-d893-4a2b-9cf2-45490f5b78a3.dcm",
+      "label": 1,
+      "prob": 0.7648946642875671,
+      "border_energy": 0.21683239936828613
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/98c8bc72-1779-43f0-a118-538edcbc9e71.dcm",
+      "label": 1,
+      "prob": 0.914370596408844,
+      "border_energy": 0.33951979875564575
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b2541f48-1acf-4f33-b604-8665fc1517c8.dcm",
+      "label": 1,
+      "prob": 0.27831950783729553,
+      "border_energy": 0.775213897228241
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3e881f10-28aa-4626-a79a-50cc014b7a1a.dcm",
+      "label": 1,
+      "prob": 0.6835820078849792,
+      "border_energy": 0.34524935483932495
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/61ce0cf3-07e0-4969-b724-beecc01f8447.dcm",
+      "label": 1,
+      "prob": 0.7640373110771179,
+      "border_energy": 0.3044946789741516
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3c5b5b81-50e4-41e4-bd8f-d49d13e768d4.dcm",
+      "label": 1,
+      "prob": 0.5634007453918457,
+      "border_energy": 0.3471556305885315
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e9e58cf9-f301-4fe9-a5d5-ff12f7981612.dcm",
+      "label": 1,
+      "prob": 0.9368715286254883,
+      "border_energy": 0.21494615077972412
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/03d92597-3e33-4fdf-8db5-a27cf5b8d3eb.dcm",
+      "label": 1,
+      "prob": 0.9072394371032715,
+      "border_energy": 0.2585808038711548
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/388cc388-c2aa-4bfe-8a63-4565c626d951.dcm",
+      "label": 1,
+      "prob": 0.2035859227180481,
+      "border_energy": 0.6592364311218262
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/32d840e8-6bee-4e0b-b942-f18304166ca9.dcm",
+      "label": 1,
+      "prob": 0.9628873467445374,
+      "border_energy": 0.22365432977676392
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5cb11c59-6ba7-4f94-b9f8-12927ffb8981.dcm",
+      "label": 1,
+      "prob": 0.6849648952484131,
+      "border_energy": 0.37999391555786133
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1f458170-a4e7-447f-a157-2b44e85f1e6c.dcm",
+      "label": 1,
+      "prob": 0.7592533826828003,
+      "border_energy": 0.2620333433151245
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/71bed21d-d089-4918-a058-2b6602d176a2.dcm",
+      "label": 1,
+      "prob": 0.9565034508705139,
+      "border_energy": 0.24412697553634644
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/df6fce59-efa3-41a1-bdf7-1ff27cad394f.dcm",
+      "label": 1,
+      "prob": 0.9504474401473999,
+      "border_energy": 0.1716185212135315
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/db41f495-510e-4d53-9440-b593e8394ff5.dcm",
+      "label": 1,
+      "prob": 0.5594667792320251,
+      "border_energy": 0.4030722379684448
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9530b7b3-6cf5-4d8f-b76a-8fcedc319c4e.dcm",
+      "label": 1,
+      "prob": 0.8066825270652771,
+      "border_energy": 0.2725725769996643
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/02002619-3dea-4038-8d4d-458db30ed8de.dcm",
+      "label": 1,
+      "prob": 0.9869881868362427,
+      "border_energy": 0.271462619304657
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/393288db-4195-4b6b-a380-053c20aecf81.dcm",
+      "label": 1,
+      "prob": 0.9091081023216248,
+      "border_energy": 0.212738037109375
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8f460d7d-164d-4f3e-b3eb-1c9f0c43b49e.dcm",
+      "label": 1,
+      "prob": 0.7911609411239624,
+      "border_energy": 0.2904636859893799
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cd4f439d-61be-4ecb-bc27-383f9cd29569.dcm",
+      "label": 1,
+      "prob": 0.7974280118942261,
+      "border_energy": 0.2396194338798523
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3cbd12c8-6302-43b1-a28c-fcc892540c2e.dcm",
+      "label": 1,
+      "prob": 0.8535043001174927,
+      "border_energy": 0.22446209192276
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f961ffa3-2df5-48ce-854a-1440df7f7a6e.dcm",
+      "label": 1,
+      "prob": 0.9825019836425781,
+      "border_energy": 0.27737122774124146
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/980f7412-072b-4cc4-846d-99fc5607d70c.dcm",
+      "label": 1,
+      "prob": 0.9227656722068787,
+      "border_energy": 0.3093281388282776
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ec3cfcee-58f2-442f-a272-59390100cbba.dcm",
+      "label": 1,
+      "prob": 0.7741720080375671,
+      "border_energy": 0.15775495767593384
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a887251c-8046-4ff2-b5e5-9ef155ef94a7.dcm",
+      "label": 1,
+      "prob": 0.8443134427070618,
+      "border_energy": 0.33724963665008545
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5c0149ad-fbb6-49a3-bd2d-de30ee0db938.dcm",
+      "label": 1,
+      "prob": 0.7568886280059814,
+      "border_energy": 0.3283419609069824
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/edfab0d2-53e7-4124-846b-ab531dd2ce80.dcm",
+      "label": 1,
+      "prob": 0.9934771656990051,
+      "border_energy": 0.2324172854423523
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d6931240-6770-4832-a4b8-4a47dd51c0ac.dcm",
+      "label": 1,
+      "prob": 0.15880173444747925,
+      "border_energy": 0.9297051429748535
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a33882f0-bccb-4c22-8104-deae4a3b3b4c.dcm",
+      "label": 1,
+      "prob": 0.24623271822929382,
+      "border_energy": 0.6952515840530396
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/baed4093-ba48-42d5-8479-92b2612217e0.dcm",
+      "label": 1,
+      "prob": 0.7285652160644531,
+      "border_energy": 0.2318730354309082
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5f04038d-8c7a-455a-a2ac-8582102d7227.dcm",
+      "label": 1,
+      "prob": 0.4201202690601349,
+      "border_energy": 0.22854584455490112
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/80e7b516-3f0d-4f19-b7e4-7e2849ec0e13.dcm",
+      "label": 1,
+      "prob": 0.9094874858856201,
+      "border_energy": 0.143693208694458
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/17764c35-e511-4ff1-a7d1-cc5d670b0f08.dcm",
+      "label": 1,
+      "prob": 0.7689453363418579,
+      "border_energy": 0.19475483894348145
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/320fb85d-09c5-4c0b-be25-91c0086c2c51.dcm",
+      "label": 1,
+      "prob": 0.8314003348350525,
+      "border_energy": 0.36215102672576904
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8445fce3-aa62-44de-aba5-3750dd837d8b.dcm",
+      "label": 1,
+      "prob": 0.8955082297325134,
+      "border_energy": 0.28688544034957886
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5b3477db-9494-4617-acac-e2f28452ebb0.dcm",
+      "label": 0,
+      "prob": 0.20591706037521362,
+      "border_energy": 0.9421753287315369
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/29a2fb4c-481c-4147-89ad-5b6d1e343903.dcm",
+      "label": 0,
+      "prob": 0.004831042140722275,
+      "border_energy": 0.9684835076332092
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ef27c260-e68c-4da3-bb4b-bf2e11fc34b2.dcm",
+      "label": 0,
+      "prob": 0.07671990245580673,
+      "border_energy": 0.8541573882102966
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/df38f4cd-0f51-49ad-a6be-335c0de026d6.dcm",
+      "label": 0,
+      "prob": 0.2877557575702667,
+      "border_energy": 0.5207819938659668
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f7a37b72-fda5-4adc-b3b0-968c923bc1c6.dcm",
+      "label": 0,
+      "prob": 0.11292111873626709,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f23b3fbf-b769-4333-85fe-8b218421465b.dcm",
+      "label": 0,
+      "prob": 0.39902326464653015,
+      "border_energy": 0.5156353712081909
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6cb0dab9-dcde-450c-95c5-6bc1dafc2423.dcm",
+      "label": 0,
+      "prob": 0.030188707634806633,
+      "border_energy": 0.9303023815155029
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/79528fcb-5f13-483a-b185-69cbc10d8ddf.dcm",
+      "label": 0,
+      "prob": 0.11348223686218262,
+      "border_energy": 0.9285513162612915
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/dff7255f-885f-49d0-a6c0-96ff8404e04d.dcm",
+      "label": 0,
+      "prob": 0.23378628492355347,
+      "border_energy": 0.7479056119918823
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8a0db21f-2bf6-423c-ab0d-421f9addd8d6.dcm",
+      "label": 0,
+      "prob": 0.39501282572746277,
+      "border_energy": 0.6290673613548279
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/52e7bb63-d553-49cb-a27c-ea967b2daa52.dcm",
+      "label": 0,
+      "prob": 0.7573969960212708,
+      "border_energy": 0.19092273712158203
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9cd9df10-9991-4eb7-b512-33767409afc5.dcm",
+      "label": 0,
+      "prob": 0.7721129655838013,
+      "border_energy": 0.23676204681396484
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/65e64b92-979d-4fd1-b627-f7b1df07ab5e.dcm",
+      "label": 0,
+      "prob": 0.15081819891929626,
+      "border_energy": 0.9691379070281982
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8c404eed-fd6f-4730-9506-9e2a47684f2d.dcm",
+      "label": 0,
+      "prob": 0.43612179160118103,
+      "border_energy": 0.16321641206741333
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ff332704-48e0-445b-9188-b2a696d1f0d7.dcm",
+      "label": 0,
+      "prob": 0.014967705123126507,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/52b704f8-55a9-46aa-a5ae-f1136cd3bf6d.dcm",
+      "label": 0,
+      "prob": 0.7958871126174927,
+      "border_energy": 0.35380303859710693
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/64f134d6-370e-46f5-a16e-0c9832f1eda9.dcm",
+      "label": 0,
+      "prob": 0.08427726477384567,
+      "border_energy": 0.9410075545310974
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/78ec6068-25e2-4965-a016-19efab9e9280.dcm",
+      "label": 0,
+      "prob": 0.10348543524742126,
+      "border_energy": 0.9483312368392944
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1d9dde4e-97cc-4163-a3d5-8b845ad60ded.dcm",
+      "label": 0,
+      "prob": 0.09877432882785797,
+      "border_energy": 0.8787292838096619
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/80e3de30-603c-425c-9f82-4b477dd70a1c.dcm",
+      "label": 0,
+      "prob": 0.07514896988868713,
+      "border_energy": 0.9025831818580627
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4dbc6799-0777-4982-b20d-094b070218c2.dcm",
+      "label": 0,
+      "prob": 0.00884876400232315,
+      "border_energy": 0.9395309686660767
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4de7f61d-0216-4103-8866-fbfd04ff4c44.dcm",
+      "label": 0,
+      "prob": 0.1743047684431076,
+      "border_energy": 0.9411625862121582
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6c553656-185d-4de7-9e21-9fb6c00e1621.dcm",
+      "label": 0,
+      "prob": 0.06979861110448837,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/877351ec-1037-41bf-ab4b-79dce16ae36c.dcm",
+      "label": 0,
+      "prob": 0.437705397605896,
+      "border_energy": 0.42490917444229126
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9f64795e-f4ca-4931-ac92-f5a41b292227.dcm",
+      "label": 0,
+      "prob": 0.2757686972618103,
+      "border_energy": 0.6343474388122559
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d27802c9-4a7b-4680-b5ff-65a77c9a67d8.dcm",
+      "label": 0,
+      "prob": 0.09437904506921768,
+      "border_energy": 0.9480896592140198
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6bbe814d-e291-4e8c-b6d2-83475f61bd3d.dcm",
+      "label": 0,
+      "prob": 0.13158456981182098,
+      "border_energy": 0.9444098472595215
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ec9556c0-ee07-47c1-96bb-56365df7493a.dcm",
+      "label": 0,
+      "prob": 0.5828155279159546,
+      "border_energy": 0.23385006189346313
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4794359b-25af-4ed9-859d-3a0bdf1e4868.dcm",
+      "label": 0,
+      "prob": 0.22608843445777893,
+      "border_energy": 0.9318668246269226
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/185968b1-eeb0-450a-8862-8cce9e6ed3ff.dcm",
+      "label": 0,
+      "prob": 0.0760933980345726,
+      "border_energy": 0.8779352903366089
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9c003e5e-de14-40c9-b713-eaaed0e5279d.dcm",
+      "label": 0,
+      "prob": 0.6894412040710449,
+      "border_energy": 0.24728935956954956
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7c756321-18a2-4300-b20e-50cffd8c8647.dcm",
+      "label": 0,
+      "prob": 0.04236573725938797,
+      "border_energy": 0.969930112361908
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/395add1e-0bf4-4466-830c-84feba17710e.dcm",
+      "label": 0,
+      "prob": 0.1693171113729477,
+      "border_energy": 0.9129436016082764
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f8a5a275-712b-433d-9578-84d44a87d062.dcm",
+      "label": 0,
+      "prob": 0.08724372088909149,
+      "border_energy": 0.9503270387649536
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/52d8daa8-bc19-4128-a8bd-60b6c0384ae2.dcm",
+      "label": 0,
+      "prob": 0.5387693047523499,
+      "border_energy": 0.47923940420150757
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4a699891-c95c-473e-a54f-3bbd324b1e4d.dcm",
+      "label": 0,
+      "prob": 0.2532487213611603,
+      "border_energy": 0.830813467502594
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0bda6a44-f304-4ca3-874a-b9f29f73da05.dcm",
+      "label": 0,
+      "prob": 0.6002789735794067,
+      "border_energy": 0.3679286241531372
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/659cede9-eeb6-4b01-9adc-8586a29bcc72.dcm",
+      "label": 0,
+      "prob": 0.3297947645187378,
+      "border_energy": 0.2927291989326477
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/36fc451d-e7c1-4931-8409-cd771610bf7d.dcm",
+      "label": 0,
+      "prob": 0.022563889622688293,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bd5cba97-38f8-440d-9365-401af84b6c4f.dcm",
+      "label": 0,
+      "prob": 0.018940692767500877,
+      "border_energy": 0.89013671875
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/2a607bec-696e-4248-b6cc-21a6266744bd.dcm",
+      "label": 0,
+      "prob": 0.016204407438635826,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b1c000a9-7e76-4469-8000-d99a5ba39642.dcm",
+      "label": 0,
+      "prob": 0.15609583258628845,
+      "border_energy": 0.925117015838623
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6fe73af9-299c-4fa8-bb73-11e4fd4398d9.dcm",
+      "label": 0,
+      "prob": 0.3271154761314392,
+      "border_energy": 0.7772777080535889
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/69810cef-52dc-4ce8-8b49-f7e9a271f0bf.dcm",
+      "label": 0,
+      "prob": 0.01390054915100336,
+      "border_energy": 0.9610761404037476
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8363d231-9345-4903-9b01-9fc3200792ea.dcm",
+      "label": 0,
+      "prob": 0.2609906494617462,
+      "border_energy": 0.6006762385368347
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9e658fac-3d66-46eb-b991-2e7f8b89e0c8.dcm",
+      "label": 0,
+      "prob": 0.19282180070877075,
+      "border_energy": 0.9477037787437439
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/2c587800-9537-42f4-8acd-b86519ab09b4.dcm",
+      "label": 0,
+      "prob": 0.23861107230186462,
+      "border_energy": 0.8473514914512634
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d7b55359-5045-410e-9820-4776cdaa137b.dcm",
+      "label": 0,
+      "prob": 0.029908599331974983,
+      "border_energy": 0.9295111894607544
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4c30114d-2e03-43b7-9bc2-48ce5e8851ab.dcm",
+      "label": 0,
+      "prob": 0.0035924261901527643,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a4c3baae-0f3e-45a0-9a78-51bae5f7bd85.dcm",
+      "label": 0,
+      "prob": 0.0745258554816246,
+      "border_energy": 0.9414646625518799
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/928efd1b-7a98-4e7d-ac8d-329650b7d495.dcm",
+      "label": 0,
+      "prob": 0.06617503613233566,
+      "border_energy": 0.9141533970832825
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/63286766-81ba-45ef-bfda-4fbd32fe90ad.dcm",
+      "label": 0,
+      "prob": 0.017675558105111122,
+      "border_energy": 0.9818990230560303
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/65baf406-5fa2-4596-a875-b3a812207328.dcm",
+      "label": 0,
+      "prob": 0.0428447462618351,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a3ed1cea-4867-4d2b-966b-aecaef204882.dcm",
+      "label": 0,
+      "prob": 0.18972653150558472,
+      "border_energy": 0.9168480634689331
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f105587e-a2ae-46c8-a3b7-30d5120611f9.dcm",
+      "label": 0,
+      "prob": 0.8479039669036865,
+      "border_energy": 0.20889049768447876
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c8a5deba-d04b-443a-ada9-621b28405385.dcm",
+      "label": 0,
+      "prob": 0.24061624705791473,
+      "border_energy": 0.8949188590049744
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8b0fc04c-70fd-4648-b5df-12f8bdb24862.dcm",
+      "label": 0,
+      "prob": 0.08087301254272461,
+      "border_energy": 0.900118350982666
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4a4110df-1301-4559-8702-4bcb1c9f1764.dcm",
+      "label": 0,
+      "prob": 0.9372029900550842,
+      "border_energy": 0.3701620101928711
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1a9c4cb9-c796-4174-9414-ca3d653b0d5c.dcm",
+      "label": 0,
+      "prob": 0.026606421917676926,
+      "border_energy": 0.918418824672699
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/dc335d45-644f-4c51-960e-e24c8e564247.dcm",
+      "label": 0,
+      "prob": 0.07450958341360092,
+      "border_energy": 0.9619619846343994
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/37d596c9-2e31-4e7d-8fbf-13b94853c811.dcm",
+      "label": 0,
+      "prob": 0.06538865715265274,
+      "border_energy": 0.9327706694602966
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6fdfe34b-f264-4bec-8669-b19786a1a6e8.dcm",
+      "label": 0,
+      "prob": 0.1462002843618393,
+      "border_energy": 0.9046451449394226
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d183d75c-a407-487e-b7a9-9daff7a48a20.dcm",
+      "label": 0,
+      "prob": 0.02526281215250492,
+      "border_energy": 0.9780223965644836
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7c802df1-b4a9-42d0-a893-2df8f9fab716.dcm",
+      "label": 0,
+      "prob": 0.49920839071273804,
+      "border_energy": 0.6050065755844116
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cac9edd0-67de-4c40-9369-db86097f7e45.dcm",
+      "label": 0,
+      "prob": 0.14232446253299713,
+      "border_energy": 0.518821656703949
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6d6c53eb-4b90-4149-a8f4-523b65375525.dcm",
+      "label": 0,
+      "prob": 0.07057502865791321,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6e0e18b6-462f-46e8-bded-d39b628ac13d.dcm",
+      "label": 0,
+      "prob": 0.3701018989086151,
+      "border_energy": 0.6099011898040771
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/766e20e8-7a3b-4294-a00f-ec635069465f.dcm",
+      "label": 0,
+      "prob": 0.5789200663566589,
+      "border_energy": 0.373346745967865
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ba99dd86-de1a-4bd6-a16e-b6a98e558507.dcm",
+      "label": 0,
+      "prob": 0.002859704429283738,
+      "border_energy": 0.9855589866638184
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/97ee7cce-a31f-40c9-bf5b-0a72902349ed.dcm",
+      "label": 0,
+      "prob": 0.03713662177324295,
+      "border_energy": 0.9302716255187988
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ce157ca4-ab83-42db-941c-7792333f8359.dcm",
+      "label": 0,
+      "prob": 0.894217312335968,
+      "border_energy": 0.28144484758377075
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/78214c64-ebb6-4a9c-b4ca-ea65da449fd2.dcm",
+      "label": 0,
+      "prob": 0.016658054664731026,
+      "border_energy": 0.9254745244979858
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e9a5251d-ffd1-4301-aafc-921acce55527.dcm",
+      "label": 0,
+      "prob": 0.9791305661201477,
+      "border_energy": 0.2241116166114807
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f73a6f8a-40b3-4079-85ab-a2e155903ee4.dcm",
+      "label": 0,
+      "prob": 0.18072643876075745,
+      "border_energy": 0.9034024477005005
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d1d9bf55-e999-4e44-be02-aa94b7ab0e77.dcm",
+      "label": 0,
+      "prob": 0.12448040395975113,
+      "border_energy": 0.7798845171928406
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/110f1696-ffba-439f-9918-1230c656121a.dcm",
+      "label": 0,
+      "prob": 0.17032849788665771,
+      "border_energy": 0.8514514565467834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7200a07a-2204-419c-a467-e27ad6d3dcdd.dcm",
+      "label": 0,
+      "prob": 0.7721222639083862,
+      "border_energy": 0.25437355041503906
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/94d1813a-2992-4aaf-9059-a295069eb201.dcm",
+      "label": 0,
+      "prob": 0.0812705010175705,
+      "border_energy": 0.9173491597175598
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6ae40616-cee1-4d80-a5bc-878bce7f8ac9.dcm",
+      "label": 0,
+      "prob": 0.16274841129779816,
+      "border_energy": 0.7443151473999023
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e044843c-f2a1-46e1-bbf7-a55629eaa7c5.dcm",
+      "label": 0,
+      "prob": 0.7225178480148315,
+      "border_energy": 0.1813793182373047
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/98ffe9d8-ec74-43da-b35b-e511193e097f.dcm",
+      "label": 0,
+      "prob": 0.07126976549625397,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/07c5e2ff-fd3a-47c7-936f-33f34d11b41d.dcm",
+      "label": 0,
+      "prob": 0.03315717726945877,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5c310518-3c5a-4e88-a2ca-fa2a267ecc8d.dcm",
+      "label": 0,
+      "prob": 0.13652200996875763,
+      "border_energy": 0.9148162603378296
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c61e57d7-952d-49ba-9bb6-da27b034478a.dcm",
+      "label": 0,
+      "prob": 0.02491779811680317,
+      "border_energy": 0.9317808747291565
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/564c7e63-de19-4a08-a5aa-59cfdf9b99f1.dcm",
+      "label": 0,
+      "prob": 0.7306017875671387,
+      "border_energy": 0.3338391184806824
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fb4e8f36-76ed-4354-9b37-545743fb3ca6.dcm",
+      "label": 0,
+      "prob": 0.8700394630432129,
+      "border_energy": 0.3154422640800476
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5474674e-577a-4bec-bf7f-e7e580ccfd62.dcm",
+      "label": 0,
+      "prob": 0.044124457985162735,
+      "border_energy": 0.8887876272201538
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/73fdcfb6-42ad-4be4-92b4-641250252431.dcm",
+      "label": 0,
+      "prob": 0.007631033193320036,
+      "border_energy": 0.9503060579299927
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f0a5ef60-aa28-4dc7-b5fe-9fc0d39f8e9a.dcm",
+      "label": 0,
+      "prob": 0.054956916719675064,
+      "border_energy": 0.8837424516677856
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e4a25524-a786-4297-9bf5-40a13a357e4a.dcm",
+      "label": 0,
+      "prob": 0.9535887837409973,
+      "border_energy": 0.25537633895874023
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a0c12b73-11a4-4ad2-815a-f8a818d39795.dcm",
+      "label": 0,
+      "prob": 0.15981660783290863,
+      "border_energy": 0.9604920744895935
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a400182b-ff3d-4d3b-849d-7f0f5348323c.dcm",
+      "label": 0,
+      "prob": 0.008133913390338421,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1b8888ce-5f68-4e0a-b05f-fabe9b4da1e4.dcm",
+      "label": 0,
+      "prob": 0.34652265906333923,
+      "border_energy": 0.7268544435501099
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/79ae041d-6f41-47b0-b82e-02e78f7896c0.dcm",
+      "label": 0,
+      "prob": 0.8694105744361877,
+      "border_energy": 0.35308837890625
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b539c9a4-5146-4132-b261-3f77d981ccf2.dcm",
+      "label": 0,
+      "prob": 0.030190376564860344,
+      "border_energy": 0.9533480405807495
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d97e5889-7104-475b-bf38-69b04157515c.dcm",
+      "label": 0,
+      "prob": 0.6013433933258057,
+      "border_energy": 0.24469256401062012
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/dddfd40a-b3cf-4d0b-9710-22b73d6c4dd7.dcm",
+      "label": 0,
+      "prob": 0.0770978331565857,
+      "border_energy": 0.8734095096588135
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b3fef4ce-65c5-48c4-8263-81c9e55e3ffc.dcm",
+      "label": 0,
+      "prob": 0.12713849544525146,
+      "border_energy": 0.9446878433227539
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0cac04c6-c4b6-48e5-9b28-b0a6c44289a5.dcm",
+      "label": 0,
+      "prob": 0.051347170025110245,
+      "border_energy": 0.960854709148407
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/597f9744-d4f2-42b3-9b45-183067897f3b.dcm",
+      "label": 0,
+      "prob": 0.35447680950164795,
+      "border_energy": 0.560376763343811
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/452ab672-68a5-482a-954c-492fd1a7fa42.dcm",
+      "label": 0,
+      "prob": 0.9411797523498535,
+      "border_energy": 0.2914224863052368
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/eec6cfaa-b9a6-4baa-8179-6e604272963b.dcm",
+      "label": 0,
+      "prob": 0.6038599610328674,
+      "border_energy": 0.1871504783630371
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/eff573b0-066d-47d5-9cad-33157d0588a2.dcm",
+      "label": 0,
+      "prob": 0.013723054900765419,
+      "border_energy": 0.9362344741821289
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/097574ff-b999-4c5f-bb7a-3eee6fed02d1.dcm",
+      "label": 0,
+      "prob": 0.8371508121490479,
+      "border_energy": 0.3123372197151184
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5e874185-b532-48ca-953d-2fcaf4402688.dcm",
+      "label": 0,
+      "prob": 0.8596329092979431,
+      "border_energy": 0.3283255100250244
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7e8ebee4-0503-4783-b993-d71966f97aef.dcm",
+      "label": 0,
+      "prob": 0.4479525089263916,
+      "border_energy": 0.4511118531227112
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/efcbb3f2-434c-48a2-9bea-536e2c58a753.dcm",
+      "label": 0,
+      "prob": 0.7221432328224182,
+      "border_energy": 0.4976842999458313
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9e1f1160-8d17-47a9-9d39-9524496f8c48.dcm",
+      "label": 0,
+      "prob": 0.05021141842007637,
+      "border_energy": 0.9456565380096436
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4b3ad8a6-b188-4455-817e-8c9fb7429ec5.dcm",
+      "label": 0,
+      "prob": 0.7988783121109009,
+      "border_energy": 0.33802640438079834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/93e36af8-ab53-487d-a486-3d0e0476bb84.dcm",
+      "label": 0,
+      "prob": 0.7319246530532837,
+      "border_energy": 0.23825496435165405
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b619e5ac-ed95-4a4a-990b-f67bdfa40b3d.dcm",
+      "label": 0,
+      "prob": 0.5870912075042725,
+      "border_energy": 0.5435190200805664
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8b6f9000-3a4f-4d1d-a47c-df528f9b6be1.dcm",
+      "label": 0,
+      "prob": 0.0514570027589798,
+      "border_energy": 0.9410505890846252
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a0cd44ed-2e20-4617-92fd-9e09a0ede13b.dcm",
+      "label": 0,
+      "prob": 0.3859681189060211,
+      "border_energy": 0.6212154030799866
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/690e6496-5455-4bfa-aae5-a7a48607d8cd.dcm",
+      "label": 0,
+      "prob": 0.06689217686653137,
+      "border_energy": 0.8017134666442871
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b3a7782d-13d4-417f-b897-67e873c757c7.dcm",
+      "label": 0,
+      "prob": 0.03687537834048271,
+      "border_energy": 0.9048205614089966
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a0508878-0960-41fa-85ec-001af6b58947.dcm",
+      "label": 0,
+      "prob": 0.8368623852729797,
+      "border_energy": 0.2612806558609009
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cf56523f-376d-42af-89a5-ba0b921a2881.dcm",
+      "label": 0,
+      "prob": 0.8233323693275452,
+      "border_energy": 0.3428487181663513
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d4532e6a-a432-4fc1-86d3-28025329dfe3.dcm",
+      "label": 0,
+      "prob": 0.16370198130607605,
+      "border_energy": 0.37273144721984863
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/85a38f61-752c-4a5a-9a9a-eabc2889bc06.dcm",
+      "label": 0,
+      "prob": 0.01263336930423975,
+      "border_energy": 0.9700840711593628
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/966094de-7960-4b46-9dfc-f5fd10697098.dcm",
+      "label": 0,
+      "prob": 0.06596418470144272,
+      "border_energy": 0.8056333065032959
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3c804d5b-222d-43ea-9f09-dc144ce5222b.dcm",
+      "label": 0,
+      "prob": 0.25954297184944153,
+      "border_energy": 0.8532131910324097
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4b465daf-f77c-4daf-b70f-2e312a1e6951.dcm",
+      "label": 0,
+      "prob": 0.008061781525611877,
+      "border_energy": 0.9328874349594116
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c60c4daa-5c61-4a22-9b40-1a3830ce0193.dcm",
+      "label": 0,
+      "prob": 0.7855718731880188,
+      "border_energy": 0.29569244384765625
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e5290cbe-89ff-4813-9b2a-153f4ed39423.dcm",
+      "label": 0,
+      "prob": 0.05137207731604576,
+      "border_energy": 0.9648436903953552
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d9326771-d513-4db3-9817-776ed5a4940f.dcm",
+      "label": 0,
+      "prob": 0.10015298426151276,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/44b6b737-f7a1-4fbb-a0c2-bd18ff82639c.dcm",
+      "label": 0,
+      "prob": 0.0595850944519043,
+      "border_energy": 0.9659351706504822
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9121e970-fb9b-4948-bf41-59b0c9bf8bfc.dcm",
+      "label": 0,
+      "prob": 0.4138059616088867,
+      "border_energy": 0.7302899956703186
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/46af7496-327e-4f5d-ada2-b052ada8fb36.dcm",
+      "label": 0,
+      "prob": 0.41280698776245117,
+      "border_energy": 0.6869887709617615
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/437a35ad-8f70-4ba6-86da-de2a6805a2f1.dcm",
+      "label": 0,
+      "prob": 0.42739489674568176,
+      "border_energy": 0.36773741245269775
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5a93ff09-f116-4358-b43e-34f1b64784d5.dcm",
+      "label": 0,
+      "prob": 0.1371544450521469,
+      "border_energy": 0.8274663686752319
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9caad2e4-1f2f-4670-a82a-f7d2fd23e4a6.dcm",
+      "label": 0,
+      "prob": 0.15573687851428986,
+      "border_energy": 0.7248841524124146
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/adbe1d68-1b85-4506-b97f-576f461d2697.dcm",
+      "label": 0,
+      "prob": 0.14456813037395477,
+      "border_energy": 0.8730862140655518
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ead62479-e4f7-4515-af86-d72db531c5ff.dcm",
+      "label": 0,
+      "prob": 0.5147160291671753,
+      "border_energy": 0.38643527030944824
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/8ebff72b-4e55-466c-97fb-9cde291b9850.dcm",
+      "label": 0,
+      "prob": 0.029665285721421242,
+      "border_energy": 0.9586157202720642
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6f2273b3-764e-470f-b155-97bd092900ff.dcm",
+      "label": 0,
+      "prob": 0.09806883335113525,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4d78d3e9-fec0-4413-9757-4cffef1873ca.dcm",
+      "label": 0,
+      "prob": 0.7439227104187012,
+      "border_energy": 0.40197592973709106
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/83380c83-a884-438d-aab2-addedcb566d0.dcm",
+      "label": 0,
+      "prob": 0.013769160956144333,
+      "border_energy": 0.9064967036247253
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b02154d7-4d25-4f4b-9838-5d7d56273411.dcm",
+      "label": 0,
+      "prob": 0.06574779748916626,
+      "border_energy": 0.9034851789474487
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ffe9a1c4-634d-408f-9b0f-8098ffb78a4e.dcm",
+      "label": 0,
+      "prob": 0.19058309495449066,
+      "border_energy": 0.7833538055419922
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e230bc06-3a33-49e3-955c-93eac7bf1847.dcm",
+      "label": 0,
+      "prob": 0.249210923910141,
+      "border_energy": 0.7097344398498535
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a96f7c2f-5ac2-4357-8cdf-4c364c6c8e6d.dcm",
+      "label": 0,
+      "prob": 0.8694649934768677,
+      "border_energy": 0.2697768211364746
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7908d3ae-c10c-4bc1-a256-42a6b16e90d0.dcm",
+      "label": 0,
+      "prob": 0.20285148918628693,
+      "border_energy": 0.22411108016967773
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/bd873d50-9a01-4db8-990b-22fd8c85e69a.dcm",
+      "label": 0,
+      "prob": 0.08133047074079514,
+      "border_energy": 0.9846550822257996
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/e0561453-95c2-4f18-907c-6604a98a2752.dcm",
+      "label": 0,
+      "prob": 0.6727575659751892,
+      "border_energy": 0.26143723726272583
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ffa3e9f1-6af8-481f-8523-b476e67edf69.dcm",
+      "label": 0,
+      "prob": 0.023249585181474686,
+      "border_energy": 0.9451531171798706
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/341dac0d-2d30-4442-adfc-5ee3cd7fb8ef.dcm",
+      "label": 0,
+      "prob": 0.2295708954334259,
+      "border_energy": 0.9187883734703064
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/80444b97-3034-43e6-877b-df60a7695c60.dcm",
+      "label": 0,
+      "prob": 0.0030532353557646275,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3d619fcd-67e5-477d-8942-f59a9fde8aaf.dcm",
+      "label": 0,
+      "prob": 0.06506717950105667,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/0638126f-126f-4f53-befe-538ff87597c6.dcm",
+      "label": 0,
+      "prob": 0.48904943466186523,
+      "border_energy": 0.22562766075134277
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ccf3200a-e11d-4607-a9e6-4c8e40921e20.dcm",
+      "label": 0,
+      "prob": 0.11760491132736206,
+      "border_energy": 0.7116124629974365
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/de482422-3819-4620-9f8f-32ad322f70cd.dcm",
+      "label": 0,
+      "prob": 0.09482934325933456,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/1888810b-4d10-423a-adf6-5fd52aa9961a.dcm",
+      "label": 0,
+      "prob": 0.025388607755303383,
+      "border_energy": 0.9585449695587158
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cd3541aa-97a6-47ce-8af2-63e541038aba.dcm",
+      "label": 0,
+      "prob": 0.6102631688117981,
+      "border_energy": 0.4105262756347656
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/43450dc4-b305-41fd-98b0-0fca3c3a407c.dcm",
+      "label": 0,
+      "prob": 0.7006792426109314,
+      "border_energy": 0.3622458577156067
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/eefe55af-adc8-4e5b-97f8-d90c13e1d3ce.dcm",
+      "label": 0,
+      "prob": 0.15098822116851807,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/64d3bee0-b7c0-4011-86cd-265de90ebfbc.dcm",
+      "label": 0,
+      "prob": 0.07182890176773071,
+      "border_energy": 0.9663232564926147
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/94975092-e29f-42a9-a05a-afa80385b66e.dcm",
+      "label": 0,
+      "prob": 0.005984554998576641,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/85dad6b6-8a4f-4189-b1c0-006a66f5b0bd.dcm",
+      "label": 0,
+      "prob": 0.4678358733654022,
+      "border_energy": 0.3023911714553833
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/ce026848-ce9f-4d56-befc-fd4772133fe0.dcm",
+      "label": 0,
+      "prob": 0.03881360590457916,
+      "border_energy": NaN
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d00ba7b7-0f47-4b7f-9803-d9835da7e4be.dcm",
+      "label": 0,
+      "prob": 0.11938940733671188,
+      "border_energy": 0.870025634765625
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f4cc96e5-d590-43a6-b5d6-7125e69563d9.dcm",
+      "label": 0,
+      "prob": 0.02836040034890175,
+      "border_energy": 0.9273747801780701
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/eeb9d6d1-695b-4fee-8884-4847a28c337b.dcm",
+      "label": 0,
+      "prob": 0.40502578020095825,
+      "border_energy": 0.5855460166931152
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cc1207ca-a01b-4fb2-8b1b-4341329a4d25.dcm",
+      "label": 0,
+      "prob": 0.35742491483688354,
+      "border_energy": 0.569788932800293
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/92fcd289-7239-49a2-bf1c-e628e2e891eb.dcm",
+      "label": 0,
+      "prob": 0.005299810320138931,
+      "border_energy": 0.9775171875953674
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/43c93bad-8332-4df5-ba24-97638e7b422e.dcm",
+      "label": 0,
+      "prob": 0.16662323474884033,
+      "border_energy": 0.8813929557800293
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/575c312c-82f3-406b-8945-2b37da0364ae.dcm",
+      "label": 0,
+      "prob": 0.7672728896141052,
+      "border_energy": 0.2114611268043518
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/417ec3c5-6b7a-464f-8efd-aad833a5773d.dcm",
+      "label": 0,
+      "prob": 0.2170208990573883,
+      "border_energy": 0.9271610379219055
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d2a1df4f-a150-4276-9324-98faf70280e9.dcm",
+      "label": 0,
+      "prob": 0.7681589722633362,
+      "border_energy": 0.3874017000198364
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/15588680-1e41-4ba7-b785-b7e053d39adc.dcm",
+      "label": 0,
+      "prob": 0.8880452513694763,
+      "border_energy": 0.23912709951400757
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/b01d33db-52b8-4941-80a1-0f46f3ed3c69.dcm",
+      "label": 0,
+      "prob": 0.14389775693416595,
+      "border_energy": 0.9394062757492065
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/64bc75a3-0dff-4194-97e2-71382a49a85d.dcm",
+      "label": 0,
+      "prob": 0.6699120402336121,
+      "border_energy": 0.29275476932525635
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9473f488-9627-42f2-b86b-27394b5686ea.dcm",
+      "label": 0,
+      "prob": 0.6393290162086487,
+      "border_energy": 0.306144118309021
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/9bd311f2-9303-411a-bdc6-09fdad3f1be2.dcm",
+      "label": 0,
+      "prob": 0.532052218914032,
+      "border_energy": 0.3676164150238037
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3ea080bf-4e81-4037-a686-fcf254a9e1bb.dcm",
+      "label": 0,
+      "prob": 0.025672920048236847,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5f9d676f-13bd-4c0c-8727-14804220f54f.dcm",
+      "label": 0,
+      "prob": 0.018013985827565193,
+      "border_energy": 0.9193828105926514
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/80915b6d-b13b-4506-98b8-73f6c10dc32d.dcm",
+      "label": 0,
+      "prob": 0.026072613894939423,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/cc2435ff-067e-467b-81da-2675b4612c6b.dcm",
+      "label": 0,
+      "prob": 0.12199830263853073,
+      "border_energy": 0.89013671875
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5258e07a-292d-495a-8c66-8cbc9221ec14.dcm",
+      "label": 0,
+      "prob": 0.12564969062805176,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/c2a558c4-8f67-4f94-a31e-fbb5d7d6507f.dcm",
+      "label": 0,
+      "prob": 0.0009482522145844996,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/778a9af4-7231-4a43-9bcc-63dd8b96b387.dcm",
+      "label": 0,
+      "prob": 0.5468217730522156,
+      "border_energy": 0.49461209774017334
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6838d4f4-cf76-4225-889b-c23f5bde870e.dcm",
+      "label": 0,
+      "prob": 0.23255513608455658,
+      "border_energy": 0.9273910522460938
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/96bff39a-fd83-4a16-80a0-ae8f6c0b433f.dcm",
+      "label": 0,
+      "prob": 0.9408556818962097,
+      "border_energy": 0.281860888004303
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/187d657f-6de2-41de-bc6e-0bed9757aade.dcm",
+      "label": 0,
+      "prob": 0.36153075098991394,
+      "border_energy": 0.7745904326438904
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/562b9c1d-e8a4-4221-8aa3-531b3bcde233.dcm",
+      "label": 0,
+      "prob": 0.10652543604373932,
+      "border_energy": 0.8878735899925232
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/19134807-be51-4b28-818c-17951de93615.dcm",
+      "label": 0,
+      "prob": 0.41301795840263367,
+      "border_energy": 0.5403749346733093
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/6e29410d-4578-446e-8d04-a9f4dfa911db.dcm",
+      "label": 0,
+      "prob": 0.08972157537937164,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/a183866e-17ce-442d-8e80-1c6bfb81e184.dcm",
+      "label": 0,
+      "prob": 0.027844097465276718,
+      "border_energy": 0.9879300594329834
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/3fd6fcca-e35b-432b-8e7f-be83b110694c.dcm",
+      "label": 0,
+      "prob": 0.08463946729898453,
+      "border_energy": 0.930900514125824
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/fbd611c7-629b-4f62-a9b2-cc5620627c4d.dcm",
+      "label": 0,
+      "prob": 0.29643362760543823,
+      "border_energy": 0.7540768384933472
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/445c2799-58cc-4d3a-93ab-c8e16398e1e4.dcm",
+      "label": 0,
+      "prob": 0.07267357409000397,
+      "border_energy": 0.9213563203811646
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/073d58b8-b9a1-4d44-ae30-9cea99efa0c9.dcm",
+      "label": 0,
+      "prob": 0.14899399876594543,
+      "border_energy": 0.915014922618866
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/50d2c928-9230-40ee-83d9-8bc448f9c72f.dcm",
+      "label": 0,
+      "prob": 0.0887674018740654,
+      "border_energy": 0.9629862904548645
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/7ba79be9-498c-48f0-bf66-8f9b2a86ab76.dcm",
+      "label": 0,
+      "prob": 0.5781744122505188,
+      "border_energy": 0.29642701148986816
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d639e1f9-5b7b-42d3-8a46-1c5eeaa7f4ac.dcm",
+      "label": 0,
+      "prob": 0.5466254353523254,
+      "border_energy": 0.20509964227676392
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/f60ed3c9-4287-4724-a085-71e0c51f8d41.dcm",
+      "label": 0,
+      "prob": 0.5635276436805725,
+      "border_energy": 0.171147882938385
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4520c7c6-1a03-48b7-a3c1-41bd06d18b70.dcm",
+      "label": 0,
+      "prob": 0.14524275064468384,
+      "border_energy": 0.927655816078186
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/d4b76e52-3b6b-42e3-9dce-a1c39c2fccfe.dcm",
+      "label": 0,
+      "prob": 0.5501591563224792,
+      "border_energy": 0.5519571304321289
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/4d3468e5-59cc-4501-9160-66ae5a0d13b5.dcm",
+      "label": 0,
+      "prob": 0.13114584982395172,
+      "border_energy": 0.939064621925354
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/dbe390c0-12cd-4c4c-998e-c97b4257e155.dcm",
+      "label": 0,
+      "prob": 0.23101717233657837,
+      "border_energy": 0.8563108444213867
+    },
+    {
+      "image_path": "/kaggle/input/competitions/rsna-pneumonia-detection-challenge/stage_2_train_images/5911f339-19e0-4b54-9c49-adfc7a575e3a.dcm",
+      "label": 0,
+      "prob": 0.10983624309301376,
+      "border_energy": 0.9336957335472107
+    }
+  ]
+}
