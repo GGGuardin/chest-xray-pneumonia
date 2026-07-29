@@ -1,0 +1,123 @@
+{
+  "target": "Pneumonia",
+  "referencia_chexnet_auroc": 0.768,
+  "test_interno_nih": {
+    "n": 16703,
+    "prevalencia": 0.013291025564269891,
+    "threshold": 0.5530527234077454,
+    "auroc": 0.7202447426493297,
+    "auprc": 0.03487066696269186,
+    "accuracy": 0.7340597497455547,
+    "sensibilidad": 0.5900900900900901,
+    "especificidad": 0.7359990291851223,
+    "ppv": 0.02922802320392682,
+    "npv": 0.992553800834629,
+    "f1": 0.055697278911564625,
+    "fnr": 0.40990990990990994,
+    "fpr": 0.2640009708148777,
+    "brier": 0.22556300692107717,
+    "tp": 131,
+    "fp": 4351,
+    "tn": 12130,
+    "fn": 91,
+    "auroc_ci95": [
+      0.687764567199697,
+      0.753966054863102
+    ],
+    "auprc_ci95": [
+      0.027993933959419723,
+      0.045064756658202906
+    ],
+    "checkpoint": "/kaggle/working/runs/nih_densenet121/best.pth",
+    "manifest": "/kaggle/working/manifest_nih.csv",
+    "split": "test"
+  },
+  "externo_pediatrico": {
+    "n": 5856,
+    "prevalencia": 0.7296789617486339,
+    "threshold": 0.5530527234077454,
+    "auroc": 0.5236322800809384,
+    "auprc": 0.7887160865692752,
+    "accuracy": 0.5121243169398907,
+    "sensibilidad": 0.5080739527264218,
+    "especificidad": 0.5230574857864814,
+    "ppv": 0.7419685577580314,
+    "npv": 0.2825938566552901,
+    "f1": 0.603139324906237,
+    "fnr": 0.49192604727357825,
+    "fpr": 0.47694251421351863,
+    "brier": 0.2375959996088693,
+    "tp": 2171,
+    "fp": 755,
+    "tn": 828,
+    "fn": 2102,
+    "auroc_ci95": [
+      0.5082657543070307,
+      0.5389966923838289
+    ],
+    "auprc_ci95": [
+      0.7748090736137918,
+      0.8015260181911492
+    ],
+    "checkpoint": "/kaggle/working/runs/nih_densenet121/best.pth",
+    "manifest": "/kaggle/working/manifest_externo.csv",
+    "split": "all"
+  },
+  "fairness": {
+    "threshold": 0.5530527,
+    "global": {
+      "n": 16703,
+      "prevalencia": 0.013291025564269891,
+      "threshold": 0.5530527,
+      "auroc": 0.7202447426493297,
+      "auprc": 0.03487066696269186,
+      "accuracy": 0.7340597497455547,
+      "sensibilidad": 0.5900900900900901,
+      "especificidad": 0.7359990291851223,
+      "ppv": 0.02922802320392682,
+      "npv": 0.992553800834629,
+      "f1": 0.055697278911564625,
+      "fnr": 0.40990990990990994,
+      "fpr": 0.2640009708148777,
+      "brier": 0.22556300697333598,
+      "tp": 131,
+      "fp": 4351,
+      "tn": 12130,
+      "fn": 91
+    },
+    "brechas": {
+      "age_group": {
+        "fnr_max": 1.0,
+        "fnr_min": 0.3333,
+        "brecha_fnr": 0.6667000000000001,
+        "peor_subgrupo": "75+"
+      },
+      "sex": {
+        "fnr_max": 0.4207,
+        "fnr_min": 0.3896,
+        "brecha_fnr": 0.031100000000000017,
+        "peor_subgrupo": "M"
+      },
+      "sex x age_group": {
+        "fnr_max": 1.0,
+        "fnr_min": 0.3125,
+        "brecha_fnr": 0.6875,
+        "peor_subgrupo": "M | 75+"
+      },
+      "view": {
+        "fnr_max": 0.6154,
+        "fnr_min": 0.2672,
+        "brecha_fnr": 0.34819999999999995,
+        "peor_subgrupo": "PA"
+      }
+    }
+  },
+  "gradcam": {
+    "n_imagenes": 16,
+    "energia_bordes_media": 0.6277503110468388,
+    "energia_bordes_p90": 0.9620191752910614,
+    "marco_evaluado": "15% exterior (~51% del área total)"
+  },
+  "caida_auroc_externa": 0.1966,
+  "minutos_totales": 84.2
+}

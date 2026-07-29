@@ -1,0 +1,116 @@
+{
+  "n_imagenes": 16,
+  "baseline_uniforme": 0.51,
+  "umbral_operativo": 0.5531,
+  "marco_evaluado": "15% exterior (~51% del área total)",
+  "detecciones_positivas": {
+    "n": 5,
+    "energia_bordes_media": 0.334,
+    "veredicto": "atención centrada en el pulmón"
+  },
+  "resto_de_casos": {
+    "n": 11,
+    "energia_bordes_media": 0.7613,
+    "nota": "mapa sin señal; energía alta esperada, no indica atajo"
+  },
+  "mapas_nulos": 0,
+  "energia_bordes_media_global": 0.6278,
+  "detalle": [
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_008/images/00017070_001.png",
+      "label": 1,
+      "prob": 0.6440386772155762,
+      "border_energy": 0.3514125347137451
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_012/images/00030079_022.png",
+      "label": 1,
+      "prob": 0.8553960919380188,
+      "border_energy": 0.22671425342559814
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_002/images/00002469_003.png",
+      "label": 1,
+      "prob": 0.24999690055847168,
+      "border_energy": 0.41360926628112793
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_009/images/00019694_005.png",
+      "label": 1,
+      "prob": 0.5240362286567688,
+      "border_energy": 0.5706238746643066
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_008/images/00017714_019.png",
+      "label": 1,
+      "prob": 0.3401361107826233,
+      "border_energy": 0.9634100794792175
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_007/images/00015162_002.png",
+      "label": 1,
+      "prob": 0.601974606513977,
+      "border_energy": 0.40439683198928833
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_006/images/00013249_034.png",
+      "label": 1,
+      "prob": 0.7751997709274292,
+      "border_energy": 0.25069350004196167
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_002/images/00003640_004.png",
+      "label": 1,
+      "prob": 0.3862364590167999,
+      "border_energy": 0.6904798746109009
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_006/images/00013249_052.png",
+      "label": 0,
+      "prob": 0.6254059076309204,
+      "border_energy": 0.4369041919708252
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_011/images/00028131_008.png",
+      "label": 0,
+      "prob": 0.3213908076286316,
+      "border_energy": 0.868215024471283
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_003/images/00006479_000.png",
+      "label": 0,
+      "prob": 0.14380182325839996,
+      "border_energy": 0.97748863697052
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_008/images/00018044_006.png",
+      "label": 0,
+      "prob": 0.4919585585594177,
+      "border_energy": 0.6147335171699524
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_004/images/00007442_000.png",
+      "label": 0,
+      "prob": 0.23235169053077698,
+      "border_energy": 0.9522557258605957
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_010/images/00024427_000.png",
+      "label": 0,
+      "prob": 0.4271405339241028,
+      "border_energy": 0.4523598551750183
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_010/images/00022397_005.png",
+      "label": 0,
+      "prob": 0.16537252068519592,
+      "border_energy": 0.9100795388221741
+    },
+    {
+      "image_path": "/kaggle/input/datasets/organizations/nih-chest-xrays/data/images_007/images/00014203_024.png",
+      "label": 0,
+      "prob": 0.19651052355766296,
+      "border_energy": 0.9606282711029053
+    }
+  ]
+}

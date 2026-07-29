@@ -19,7 +19,12 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.explain import border_energy_fraction, explain_image, overlay_cam  # noqa: E402
+from src.explain import (  # noqa: E402
+    border_energy_fraction,
+    explain_image,
+    overlay_cam,
+    uniform_baseline,
+)
 from src.model import load_checkpoint  # noqa: E402
 
 DESCARGO = """
@@ -63,16 +68,31 @@ def build_interface(checkpoint_path: str):
             os.unlink(ruta)
 
         prob = r["prob"]
-        etiqueta = "OPACIDAD / NEUMONÍA" if prob >= threshold else "SIN OPACIDAD"
+        positivo = prob >= threshold
+        etiqueta = "OPACIDAD / NEUMONÍA" if positivo else "SIN OPACIDAD"
         borde = border_energy_fraction(r["cam"])
-        aviso = ""
-        if not np.isnan(borde) and borde > 0.35:
-            aviso = ("\n\n⚠️ Gran parte de la atención cae en los bordes de la imagen: "
-                     "posible atajo espurio, interpreta la predicción con cautela.")
+        base = uniform_baseline()
+
+        # La energía en bordes solo informa cuando hay detección: en un negativo
+        # el mapa de la clase positiva no señala nada y su energía es alta por
+        # construcción, no por atajo espurio.
+        if np.isnan(borde):
+            nota = "Mapa vacío: el modelo no encuentra nada que señalar."
+        elif not positivo:
+            nota = (f"Energía en bordes {borde:.2f} (referencia {base:.2f}). "
+                    "Sin detección positiva, este número no informa sobre atajos.")
+        elif borde > base:
+            nota = (f"⚠️ Energía en bordes {borde:.2f}, por encima de la referencia "
+                    f"{base:.2f}: la atención se va al marco de la imagen en vez de al "
+                    "pulmón. Interpreta la predicción con cautela.")
+        else:
+            nota = (f"Energía en bordes {borde:.2f} frente a {base:.2f} de un mapa sin "
+                    "estructura: la atención se concentra en la zona central.")
+
         texto = (
             f"**p(opacidad pulmonar) = {prob:.3f}**\n\n"
             f"Clasificación al umbral operativo {threshold:.3f}: **{etiqueta}**\n\n"
-            f"Energía del Grad-CAM en el marco exterior: {borde:.2f}{aviso}"
+            f"{nota}"
         )
         return overlay_cam(r["input_rgb"], r["cam"]), texto, {"normal": 1 - prob, "neumonía": prob}
 

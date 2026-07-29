@@ -161,17 +161,60 @@ sube `app/app.py`, `src/`, `requirements.txt` y `best.pth`, y define
 
 ## Resultados
 
-DenseNet-121 entrenada en RSNA (66 min en una T4 de Kaggle), *early stopping* en
-la época 7 conservando la 3. Artefactos completos en [`results/rsna/`](results/rsna).
+Dos modelos DenseNet-121 entrenados de forma independiente en una T4 de Kaggle:
+uno en **RSNA** (66 min, *early stopping* en la época 7 conservando la 3) y otro
+en **NIH ChestX-ray14** (84 min, época 5 conservando la 2). Artefactos completos
+en [`results/`](results).
+
+**Modelo A — entrenado en RSNA** (opacidad pulmonar anotada por radiólogos)
 
 | Conjunto | n | AUROC (IC95%) | AUPRC | Sens. | Esp. |
 |---|---|---|---|---|---|
 | **Test interno** (RSNA, split por paciente) | 3.812 | **0,885** (0,872–0,897) | 0,718 | 0,776 | 0,813 |
-| **Externo — NIH ChestX-ray14** | 112.120 | 0,727 (0,714–0,740) | 0,035 | 0,542 | 0,787 |
-| **Externo — pediátrico (Guangzhou)** | 5.856 | 0,922 (0,914–0,930) | 0,969 | **0,362** | 0,992 |
+| Externo — NIH ChestX-ray14 | 112.120 | 0,727 (0,714–0,740) | 0,035 | 0,542 | 0,787 |
+| Externo — pediátrico (Guangzhou) | 5.856 | 0,922 (0,914–0,930) | 0,969 | **0,362** | 0,992 |
+
+**Modelo B — entrenado en NIH** (neumonía extraída por NLP de informes)
+
+| Conjunto | n | AUROC (IC95%) | AUPRC | Sens. | Esp. |
+|---|---|---|---|---|---|
+| Test interno (NIH, split por paciente) | 16.703 | 0,720 (0,688–0,754) | 0,035 | 0,590 | 0,736 |
+| Externo — pediátrico (Guangzhou) | 5.856 | **0,524** (0,508–0,539) | 0,789 | 0,508 | 0,523 |
 
 **Umbral de éxito del proyecto:** AUROC > 0,85 en test con split por paciente —
-**cumplido**, con el intervalo de confianza entero por encima.
+**cumplido por el modelo A**, con el intervalo de confianza entero por encima.
+El modelo B se queda en 0,720, por debajo de la referencia de CheXNet (0,768)
+para esta misma etiqueta y dataset.
+
+### El resultado más incómodo: entrenar en NIH no aportó nada
+
+| Evaluado sobre NIH | AUROC (IC95%) |
+|---|---|
+| Modelo **B**, entrenado *en* NIH (test propio) | 0,720 (0,688–0,754) |
+| Modelo **A**, entrenado en RSNA, que nunca vio NIH | **0,727** (0,714–0,740) |
+
+Un modelo que **nunca vio una sola imagen de NIH** iguala —o supera ligeramente— a
+uno entrenado con sus 78.000 imágenes de entrenamiento. Los intervalos de
+confianza se solapan casi por completo, así que la lectura prudente es *empate*:
+78.000 imágenes etiquetadas por NLP no aportaron ventaja medible sobre transferir
+desde 18.000 anotadas por radiólogos.
+
+Y al salir de casa la diferencia deja de ser sutil: sobre el conjunto pediátrico
+el modelo A alcanza **0,922** y el B se queda en **0,524**, indistinguible de
+lanzar una moneda. El modelo A aprendió algo que viaja; el B aprendió algo que
+solo existe dentro de NIH.
+
+La explicación más plausible es la calidad de la etiqueta: RSNA marca *opacidad
+pulmonar* delimitada visualmente por radiólogos, NIH marca *neumonía* inferida de
+texto libre por un sistema NLP con una tasa de error estimada por encima del 10%
+y una prevalencia del 1,3%. Es evidencia directa, obtenida aquí, de por qué el
+ruido de etiqueta domina sobre el volumen de datos.
+
+*Matiz honesto:* las dos filas no se miden sobre exactamente el mismo conjunto
+—el modelo B sobre su test retenido (16.703) y el A sobre NIH completo
+(112.120)—, porque el A nunca vio ninguna de esas imágenes y no necesita
+retención. Ambas evaluaciones son legítimas y de la misma distribución, pero la
+comparación no es un experimento pareado.
 
 ### Los tres hallazgos que importan
 
@@ -189,32 +232,45 @@ independiente del umbral, la utilidad clínica no lo es. Ninguna métrica sola
 habría revelado esto: hace falta mirar sensibilidad y matriz de confusión junto
 al AUROC.
 
-**3. El sesgo grave no es demográfico, es técnico.**
+**3. El sesgo grave no es demográfico, es técnico — y se replica.**
 
-| Atributo | Brecha de FNR | Peor subgrupo |
+Tasa de falsos negativos (infradiagnóstico) por proyección, en los dos modelos
+entrenados por separado sobre datasets distintos:
+
+| Modelo | FNR en PA | FNR en AP | Brecha |
+|---|---|---|---|
+| A (RSNA) | 0,553 | 0,138 | **0,415** |
+| B (NIH) | 0,615 | 0,267 | **0,348** |
+
+| Atributo (modelo A) | Brecha de FNR | Peor subgrupo |
 |---|---|---|
 | **Proyección AP/PA** | **0,415** | PA: FNR 0,553 · AP: FNR 0,138 |
 | Edad × sexo | 0,260 | Hombres 60-74 (FNR 0,337) |
 | Edad | 0,253 | 60-74 (FNR 0,333) |
 | Sexo | 0,003 | sin sesgo apreciable |
 
-Por sexo no hay brecha. La enorme es la proyección: en PA (pacientes ambulantes,
-prevalencia 8,9%) el modelo se pierde el 55% de los casos; en AP (portátil,
-pacientes encamados y más graves, prevalencia 38,1%) captura el 86% a costa de un
-39% de falsos positivos. **El modelo usa la geometría de adquisición como
-sustituto de la gravedad del paciente.**
+Por sexo no hay brecha en ninguno de los dos (0,003 y 0,031). La enorme es la
+proyección, **en la misma dirección y con magnitud parecida en ambos modelos**:
+en PA (pacientes ambulantes, baja prevalencia) se pierden más de la mitad de los
+casos; en AP (portátil, pacientes encamados y más graves) capturan mucho más a
+costa de disparar los falsos positivos. Que el patrón se replique en dos datasets
+y dos entrenamientos independientes descarta que sea casualidad de un ajuste
+concreto: **los modelos usan la geometría de adquisición como sustituto de la
+gravedad del paciente.**
 
 ### Grad-CAM: la atención sí cae en el pulmón
 
-| Grupo | n | Energía en bordes |
+| Grupo | Modelo A (RSNA) | Modelo B (NIH) |
 |---|---|---|
-| Detecciones positivas (p ≥ umbral) | 4 | **0,237** |
-| Resto de casos | 11 | 0,579 |
-| *Baseline de un mapa uniforme* | — | *0,510* |
+| Detecciones positivas (p ≥ umbral) | **0,237** (n=4) | **0,334** (n=5) |
+| Resto de casos | 0,579 (n=11) | 0,761 (n=11) |
+| *Baseline de un mapa uniforme* | *0,510* | *0,510* |
 
-En los casos que el modelo da por positivos, la atención se concentra claramente
-en el centro (0,237 frente al 0,510 de un mapa sin estructura), e inspeccionando
-los mapas se ve que ignora electrodos de ECG, cables y marcadores de lateralidad.
+En los casos que cada modelo da por positivos, la atención se concentra en el
+centro —claramente por debajo del 0,510 de un mapa sin estructura—, e
+inspeccionando los mapas del modelo A se ve que ignora electrodos de ECG, cables
+y marcadores de lateralidad. El modelo A localiza mejor que el B (0,237 frente a
+0,334), coherente con el resto de sus métricas.
 
 Un detalle metodológico que costó descubrir: **promediar todas las imágenes juntas
 da 0,488 y simula un atajo espurio inexistente.** En los negativos bien
