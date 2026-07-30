@@ -139,10 +139,12 @@ def resumen_atajos(detalle: list[dict], threshold: float) -> dict:
         "detecciones_positivas": {
             "n": len(detecciones),
             "energia_bordes_media": round(media_det, 4),
+            # Neutral respecto al dominio: este módulo se usa también en
+            # dermatología, donde hablar de "pulmón" era simplemente falso.
             "veredicto": (
-                "atención centrada en el pulmón" if media_det < base * 0.75
-                else "difusa" if media_det < base
-                else "ATAJO ESPURIO: atención en bordes"
+                "atención concentrada en la zona central" if media_det < base * 0.75
+                else "atención difusa" if media_det < base
+                else "ATAJO ESPURIO: atención en los bordes"
             ) if detecciones else "sin detecciones positivas en la muestra",
         },
         "resto_de_casos": {
